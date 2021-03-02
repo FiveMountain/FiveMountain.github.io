@@ -219,7 +219,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-03-02 16:11:02 / 修改时间：17:43:04" itemprop="dateCreated datePublished" datetime="2021-03-02T16:11:02+08:00">2021-03-02</time>
+      <time title="创建时间：2021-03-02 16:11:02 / 修改时间：18:02:24" itemprop="dateCreated datePublished" datetime="2021-03-02T16:11:02+08:00">2021-03-02</time>
     </span>
 
   
@@ -270,7 +270,23 @@
 <blockquote>
 <p>自定义的Annotation，一般都设置成<code>RUNTIME</code> </p>
 </blockquote>
-<h3 id="3、Documented"><a href="#3、Documented" class="headerlink" title="3、Documented"></a>3、Documented</h3>
+<h3 id="3、Documented"><a href="#3、Documented" class="headerlink" title="3、Documented"></a>3、Documented</h3><p><code>java.lang.annotation.Documented</code>自身也是一个注解，它的作用是将注解中的元素包含到JavaDoc文档中，一般情况下都会添加这个注解。</p>
+<h3 id="4、-interface"><a href="#4、-interface" class="headerlink" title="4、@interface"></a>4、@interface</h3><p><code>@interface</code>就是声明当前的Java类型是Annotation，固定语法。</p>
+<h3 id="5、Annotation属性"><a href="#5、Annotation属性" class="headerlink" title="5、Annotation属性"></a>5、Annotation属性</h3><pre><code>String value() default &quot;&quot;;
+</code></pre>
+<p>Annotation的属性有点像类的属性一样，它约定了属性的类型（这个类型是基础类型：String、boolean、int、long），和属性名称（默认名称是value，在饮用时可省略），default代表默认值。<br>有了这个属性，就可以正式引用一个Annotation了。例如：</p>
+<pre><code>import org.springframework.stereotype.Service;
+
+@Service
+public class Demo &#123;
+
+&#125;
+</code></pre>
+<blockquote>
+<p>Annotation也是Java类，所以一样需要import</p>
+</blockquote>
+<p>上面的<code>@Service</code>也可以写成<code>@Service(value=&quot;Demo&quot;)</code><br>因为value是默认属性名，可缩写，故等价于<code>@Service(&quot;Demo&quot;)</code></p>
+
       
     </div>
 
