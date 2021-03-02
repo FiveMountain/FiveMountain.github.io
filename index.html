@@ -219,7 +219,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-03-02 16:11:02 / 修改时间：20:13:19" itemprop="dateCreated datePublished" datetime="2021-03-02T16:11:02+08:00">2021-03-02</time>
+      <time title="创建时间：2021-03-02 16:11:02 / 修改时间：22:04:37" itemprop="dateCreated datePublished" datetime="2021-03-02T16:11:02+08:00">2021-03-02</time>
     </span>
 
   
@@ -322,6 +322,27 @@ private SongService songService;
 <p>Autowired完整的类路径是<code>org.springframework.beans.factory.annotation.Autowired</code></p>
 </blockquote>
 <p>当然还有一个前提条件，就是当前的类是Spring Bean(在类前添加合适注解，如<code>@Service</code>)</p>
+<h2 id="Spring-Resource"><a href="#Spring-Resource" class="headerlink" title="Spring Resource"></a>Spring Resource</h2><p>文件处理方案</p>
+<p>当文件在电脑某个位置(e.g.<code>d:\temp\c.txt</code>)，或在工程目录下(e.g.<code>work/c.txt</code>)时，使用File对象就可以读写</p>
+<pre><code>File file = new File(&quot;work/readme.md&quot;);
+</code></pre>
+<p>但当文件在工程的<code>src/main/resources</code>目录下时，由于Maven执行package会把resources目录下的文件一起打包进jar包里，此时显然用File对象是读取不到的。</p>
+<h4 id="classpath"><a href="#classpath" class="headerlink" title="classpath"></a>classpath</h4><p>在Java内部，一般把文件路径称为classpath，classpath指定的文件不能解析成File对象，但是可以解析成InputStream，借助Java IO就可以读取了</p>
+<blockquote>
+<p>借助第三方类库，commons-io</p>
+</blockquote>
+<pre><code>// 读取classpath的内容
+InputStream in = Test.class.getClassLoader().getResourceAsStream(&quot;c.txt&quot;);
+// 使用 commons-io库读取文本
+try&#123;
+    String content = IOUtils.toString(in, &quot;utf-8&quot;);
+    System.out.println(content);
+&#125; catch (IOException e) &#123;
+    // IOUtils.toString有可能会抛出异常
+    e.printStackTrace();
+&#125;
+</code></pre>
+<p>这段代码含义就是从Java运行的类加载器(ClassLoader)实例中查找文件，<code>Test.class</code>指当前的Test.java编译后的class文件。</p>
 
       
     </div>
