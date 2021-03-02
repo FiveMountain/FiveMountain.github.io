@@ -155,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -185,6 +185,90 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/02/Spring%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/03/02/Spring%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">Spring入门</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-03-02 08:51:57 / Modified: 09:01:19" itemprop="dateCreated datePublished" datetime="2021-03-02T08:51:57+08:00">2021-03-02</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Maven入门"><a href="#Maven入门" class="headerlink" title="Maven入门"></a>Maven入门</h2><p>###Maven命令</p>
+<blockquote>
+<p>命令要在工程的根目录下执行</p>
+</blockquote>
+<ol>
+<li><code>mvn clean compile</code></li>
+</ol>
+<p>编译命令，Maven会自动扫描src/main/java下的代码并完成编译工作，执行完，会在根目录下生成target/classes目录（存放所有的class）。</p>
+<ol start="2">
+<li><code>mvn clean package</code></li>
+</ol>
+<p>compile和package的集合，会限制性compile命令，然后执行jar打包命令。</p>
+<ol start="3">
+<li><code>mvn clean install</code></li>
+</ol>
+<p>compile、package和install的集合，执行compile、jar打包命令后，执行install命令安装到本地Maven仓库中，目录是<code>$&#123;user_home&#125;/.m2</code></p>
+<ol start="4">
+<li><code>mvn compile exec:java -Dexec.mainClass=$&#123;main&#125;</code></li>
+</ol>
+<p>在compile执行完后，运行Java的命令。具体执行的Java类由<code>-Dexec.mainClass=$&#123;main&#125;</code>参数指定。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
