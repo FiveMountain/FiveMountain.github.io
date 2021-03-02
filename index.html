@@ -219,7 +219,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-03-02 16:11:02 / 修改时间：17:39:06" itemprop="dateCreated datePublished" datetime="2021-03-02T16:11:02+08:00">2021-03-02</time>
+      <time title="创建时间：2021-03-02 16:11:02 / 修改时间：17:43:04" itemprop="dateCreated datePublished" datetime="2021-03-02T16:11:02+08:00">2021-03-02</time>
     </span>
 
   
@@ -260,17 +260,16 @@
 </code></pre>
 <h3 id="2、Retention"><a href="#2、Retention" class="headerlink" title="2、Retention"></a>2、Retention</h3><p><code>java.lang.annotation.Retention</code>自身也是一个注解，它用于声明该注解的生命周期，简单来说就是在Java编译、运行的哪个环节有效。它的值定义在<code>java.lang.annotation.RetentionPolicy</code>枚举类中，有三个值可选</p>
 <ol>
-<li><p>SOURCE： 纯注释</p>
-</li>
-<li><p>CLASS：  在编译阶段有效</p>
-</li>
-<li><p>RUNTIME：在运行阶段有效 </p>
-<p> @Retention(RetentionPolicy.RUNTIME)<br>表示在运行时有效</p>
+<li>SOURCE： 纯注释</li>
+<li>CLASS：  在编译阶段有效</li>
+<li>RUNTIME：在运行阶段有效 </li>
+</ol>
+<pre><code>@Retention(RetentionPolicy.RUNTIME)
+</code></pre>
+<p>表示在运行时有效</p>
 <blockquote>
 <p>自定义的Annotation，一般都设置成<code>RUNTIME</code> </p>
 </blockquote>
-</li>
-</ol>
 <h3 id="3、Documented"><a href="#3、Documented" class="headerlink" title="3、Documented"></a>3、Documented</h3>
       
     </div>
