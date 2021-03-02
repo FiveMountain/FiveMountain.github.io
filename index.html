@@ -219,7 +219,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-03-02 08:51:57 / Modified: 11:27:47" itemprop="dateCreated datePublished" datetime="2021-03-02T08:51:57+08:00">2021-03-02</time>
+      <time title="Created: 2021-03-02 08:51:57 / Modified: 11:34:33" itemprop="dateCreated datePublished" datetime="2021-03-02T08:51:57+08:00">2021-03-02</time>
     </span>
 
   
@@ -254,7 +254,9 @@
 <h3 id="Maven核心概念"><a href="#Maven核心概念" class="headerlink" title="Maven核心概念"></a>Maven核心概念</h3><p>Maven的配置文件是一个强约定的XML格式文件，文件名一定是<code>pom.xml</code>。</p>
 <h4 id="1、POM-Project-Object-Model"><a href="#1、POM-Project-Object-Model" class="headerlink" title="1、POM(Project Object Model)"></a>1、POM(Project Object Model)</h4><p>一个Java项目所有的配置都放置在POM文件中，大概有如下的行为：</p>
 <ul>
-<li>定义项目的类型、名字 - 管理依赖关系 - 定制插件 </li>
+<li>定义项目的类型、名字</li>
+<li>管理依赖关系</li>
+<li>定制插件 </li>
 </ul>
 <h5 id="1-1-Maven坐标"><a href="#1-1-Maven坐标" class="headerlink" title="1.1 Maven坐标"></a>1.1 Maven坐标</h5><pre><code>&lt;groupId&gt; &lt;/groupId&gt;
 &lt;artifactId&gt; &lt;/artifactId&gt;
@@ -265,7 +267,7 @@
 <p><strong>artifactId</strong><br>在一个groupId内，应该是唯一的。从规范上来说只能使用小写字母、<code>.</code>、<code>-</code>、<code>_</code>。</p>
 <p><strong>packaging</strong><br>Maven工程执行完后会把整个工程打包成<code>packaging</code>指定的文件格式，如果没有声明这个标签，默认为<code>jar</code><br>packaging有以下几种格式：</p>
 <ul>
-<li>jar - war - ear - pom </li>
+<li>jar- war- ear- pom </li>
 </ul>
 <p><strong>version</strong><br>基本上遵循了软件工程中对版本号的约定。</p>
 <ul>
