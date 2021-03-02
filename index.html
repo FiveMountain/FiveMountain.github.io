@@ -219,7 +219,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-03-02 16:11:02 / 修改时间：18:52:10" itemprop="dateCreated datePublished" datetime="2021-03-02T16:11:02+08:00">2021-03-02</time>
+      <time title="创建时间：2021-03-02 16:11:02 / 修改时间：20:00:23" itemprop="dateCreated datePublished" datetime="2021-03-02T16:11:02+08:00">2021-03-02</time>
     </span>
 
   
@@ -286,7 +286,35 @@
 <p>Annotation也是Java类，所以一样需要import</p>
 </blockquote>
 <p>上面的<code>@Service</code>也可以写成<code>@Service(value=&quot;Demo&quot;)</code><br>因为value是默认属性名，可缩写，故等价于<code>@Service(&quot;Demo&quot;)</code></p>
-<h2 id="Spring-Bean"><a href="#Spring-Bean" class="headerlink" title="Spring Bean"></a>Spring Bean</h2>
+<h2 id="Spring-Bean"><a href="#Spring-Bean" class="headerlink" title="Spring Bean"></a>Spring Bean</h2><p>IoC(Inversion of Control, 控制反转)容器是Spring框架最最核心的组件。</p>
+<blockquote>
+<p>IoC是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度</p>
+</blockquote>
+<p>在Spring框架中，主要通过依赖注入(Dependency Injection, DI)来实现IoC</p>
+<p>在Spring的世界中，所有的Java对象都会通过IoC容器转变为Bean(Spring对象的一种称呼)，构成应用程序主干和由Spring IoC容器管理的对象成为beans。beans和它们之间的依赖关系反映在容器使用的配置元数据中。基本上所有的Bean都是有接口+实现类完成的，用户想要获取Bean的实例直接从IoC容器获取即可，无需关心实现类</p>
+<p>Spring主要有两种配置元数据的方式，一种是基于XML，一种是基于Annotation</p>
+<p><code>org.springframework.context.ApplicationContext</code>接口类定义容器的对外服务，通过这个接口可以从IoC容器中得到Bean对象。在启动Java程序的时候必须先启动IoC容器</p>
+<p>Annotation类型的IoC容器对应的类是</p>
+<pre><code>org.springframework.context.annotation.AnnotationConfigApplicationContext
+</code></pre>
+<p>如果要启动IoC容器，可以运行下面的代码</p>
+<pre><code>ApplicationContext context = new AnnotationConfigApplicationContext(&quot;fm.douban&quot;);
+</code></pre>
+<p>这段代码的含义就是启动IoC容器，并且会自动加载包<code>fm,douban</code>下的Bean(引用了Spring注解的类)</p>
+<p><code>AnnotationConfigApplicationContext</code>类的构造函数有两种</p>
+<ul>
+<li><code>AnnotationConfigApplicationContext(String ... basePackages)</code>根据包名实例化</li>
+<li><code>AnnotationConfigApplicationContext(Class clszz)</code>根据自定义包扫描行为实例化</li>
+</ul>
+<p>Spring官方声明为Spring Bean的注解有以下几种：</p>
+<ul>
+<li><code>org.springframework.stereotype.Component</code><br><code>@Component</code>注解是通用的Bean注解，其余三个都是扩展自Component</li>
+<li><code>org.springframework.stereotype.Service</code><br><code>@Service</code>代表的是Service Bean</li>
+<li><code>org.springframework.stereotype.Controller</code><br><code>@Controller</code>作用于Web Bean</li>
+<li><code>org.springframework.stereotype.Repository</code><br><code>@Repsitory</code>作用于持久化相关Bean</li>
+</ul>
+<p><strong>依赖注入的第一步是完成容器的启动，第二步就是真正的完成依赖注入行为了</strong></p>
+
       
     </div>
 
