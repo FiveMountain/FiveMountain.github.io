@@ -31,7 +31,7 @@
 <meta property="og:description" content="Maven入门Maven命令 命令要在工程的根目录下执行   mvn clean compile  编译命令，Maven会自动扫描src&#x2F;main&#x2F;java下的代码并完成编译工作，执行完，会在根目录下生成target&#x2F;classes目录（存放所有的class）。  mvn clean package  compile和package的集合，会限制性compile命令，然后执行jar打包命令。  m">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-02T00:51:57.000Z">
-<meta property="article:modified_time" content="2021-03-02T04:50:31.461Z">
+<meta property="article:modified_time" content="2021-03-02T04:52:05.379Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -225,7 +225,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-03-02 08:51:57 / Modified: 12:50:31" itemprop="dateCreated datePublished" datetime="2021-03-02T08:51:57+08:00">2021-03-02</time>
+      <time title="Created: 2021-03-02 08:51:57 / Modified: 12:52:05" itemprop="dateCreated datePublished" datetime="2021-03-02T08:51:57+08:00">2021-03-02</time>
     </span>
 
   
@@ -314,7 +314,7 @@
 </li>
 <li><p>project.build.sourceEncoding<br>指定工程代码源文件的<strong>文件编码格式</strong>，一般情况下，设置为<code>UTF-8</code></p>
 </li>
-<li><p>maven.compiler.target<br>这个参数作用是按照这个JDK版本进行编译源代码</p>
+<li><p>maven.compiler.target<br>这个参数作用是按照这个JDK版本进行编译源代码 </p>
 <h4 id="2、依赖管理-dependencies"><a href="#2、依赖管理-dependencies" class="headerlink" title="2、依赖管理 dependencies"></a>2、依赖管理 dependencies</h4><p>dependency就是用于指定当前工程依赖其它代码库的，Maven会自动管理jar依赖</p>
 <blockquote>
 <p>一旦在pom.xml里声明了dependency信息，会先去本地用户目录下的<code>.m2</code>文件夹内查找对应的文件，如果没有找到就会触发从中央仓库下载行为，下载完存在本地的<code>.m2</code>文件夹内<br>我们只需在pom.xml里添加标签即可。首先声明一个父标签dependencies，然后就可以在这个标签内部添加依赖了。例如添加<code>fastjson</code>库的依赖：</p>
