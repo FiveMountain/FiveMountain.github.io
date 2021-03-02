@@ -31,7 +31,7 @@
 <meta property="og:description" content="Maven入门Maven命令 命令要在工程的根目录下执行   mvn clean compile  编译命令，Maven会自动扫描src&#x2F;main&#x2F;java下的代码并完成编译工作，执行完，会在根目录下生成target&#x2F;classes目录（存放所有的class）。  mvn clean package  compile和package的集合，会限制性compile命令，然后执行jar打包命令。  m">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-02T00:51:57.000Z">
-<meta property="article:modified_time" content="2021-03-02T01:03:42.860Z">
+<meta property="article:modified_time" content="2021-03-02T03:27:47.390Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -147,7 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven%E5%85%A5%E9%97%A8"><span class="nav-number">1.</span> <span class="nav-text">Maven入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven%E5%91%BD%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">Maven命令</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven%E5%85%A5%E9%97%A8"><span class="nav-number">1.</span> <span class="nav-text">Maven入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven%E5%91%BD%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">Maven命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-number">1.2.</span> <span class="nav-text">Maven核心概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81POM-Project-Object-Model"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、POM(Project Object Model)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-Maven%E5%9D%90%E6%A0%87"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">1.1 Maven坐标</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -225,7 +225,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-03-02 08:51:57 / Modified: 09:03:42" itemprop="dateCreated datePublished" datetime="2021-03-02T08:51:57+08:00">2021-03-02</time>
+      <time title="Created: 2021-03-02 08:51:57 / Modified: 11:27:47" itemprop="dateCreated datePublished" datetime="2021-03-02T08:51:57+08:00">2021-03-02</time>
     </span>
 
   
@@ -257,6 +257,28 @@
 <li><code>mvn compile exec:java -Dexec.mainClass=$&#123;main&#125;</code></li>
 </ol>
 <p>在compile执行完后，运行Java的命令。具体执行的Java类由<code>-Dexec.mainClass=$&#123;main&#125;</code>参数指定。</p>
+<h3 id="Maven核心概念"><a href="#Maven核心概念" class="headerlink" title="Maven核心概念"></a>Maven核心概念</h3><p>Maven的配置文件是一个强约定的XML格式文件，文件名一定是<code>pom.xml</code>。</p>
+<h4 id="1、POM-Project-Object-Model"><a href="#1、POM-Project-Object-Model" class="headerlink" title="1、POM(Project Object Model)"></a>1、POM(Project Object Model)</h4><p>一个Java项目所有的配置都放置在POM文件中，大概有如下的行为：</p>
+<ul>
+<li>定义项目的类型、名字 - 管理依赖关系 - 定制插件 </li>
+</ul>
+<h5 id="1-1-Maven坐标"><a href="#1-1-Maven坐标" class="headerlink" title="1.1 Maven坐标"></a>1.1 Maven坐标</h5><pre><code>&lt;groupId&gt; &lt;/groupId&gt;
+&lt;artifactId&gt; &lt;/artifactId&gt;
+&lt;packaging&gt; &lt;/packaging&gt;
+&lt;version&gt; &lt;/version&gt;
+</code></pre>
+<p><strong>groupId</strong><br>一般由小写的英文字母和字符<code>.</code>组成，如<code>com.fivemount.test</code>。一般来说一个公司会设置自己的groupId，避免和其他公司重合，个人开发者也一样。</p>
+<p><strong>artifactId</strong><br>在一个groupId内，应该是唯一的。从规范上来说只能使用小写字母、<code>.</code>、<code>-</code>、<code>_</code>。</p>
+<p><strong>packaging</strong><br>Maven工程执行完后会把整个工程打包成<code>packaging</code>指定的文件格式，如果没有声明这个标签，默认为<code>jar</code><br>packaging有以下几种格式：</p>
+<ul>
+<li>jar - war - ear - pom </li>
+</ul>
+<p><strong>version</strong><br>基本上遵循了软件工程中对版本号的约定。</p>
+<ul>
+<li><strong>SNAPSHOT</strong><br>快照。代表当前程序还处于不稳定阶段。</li>
+<li><strong>RELEASE</strong><br>代表程序处于稳定版本。 </li>
+</ul>
+<p><strong>版本号的约定：</strong>在软件工程里，</p>
 
     </div>
 
