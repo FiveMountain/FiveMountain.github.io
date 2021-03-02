@@ -219,7 +219,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-03-02 16:11:02 / 修改时间：17:02:54" itemprop="dateCreated datePublished" datetime="2021-03-02T16:11:02+08:00">2021-03-02</time>
+      <time title="创建时间：2021-03-02 16:11:02 / 修改时间：17:23:43" itemprop="dateCreated datePublished" datetime="2021-03-02T16:11:02+08:00">2021-03-02</time>
     </span>
 
   
@@ -238,9 +238,30 @@
 </blockquote>
 <h3 id="1、Target"><a href="#1、Target" class="headerlink" title="1、Target"></a>1、Target</h3><p><code>java.lang.annotation.Target</code>自身也是一个注解，它只有一个数组属性，用预设定该注解的目标范围，如可以作用于类或方法等。由于是数组，所以可以设定多个范围。<br>具体可以作用的类型配置在<code>java.lang.annotation.ElementType</code>枚举类中，常用的有：</p>
 <ul>
-<li>ElementType.TYPE</li>
+<li>ElementType.TYPE<blockquote>
+<p>可以作用于类、接口类、枚举类上</p>
+</blockquote>
+</li>
+<li>ElementType.FIELD<blockquote>
+<p>可以作用于类的属性上</p>
+</blockquote>
+</li>
+<li>ElementType.METHOD<blockquote>
+<p>可以作用于类的方法上</p>
+</blockquote>
+</li>
+<li>ElementType.PARAMETER<blockquote>
+<p>可以作用于类的参数</p>
+</blockquote>
+</li>
 </ul>
-
+<p>如果想同时作用于类和方法上，可以</p>
+<pre><code>@Target(&#123;ElementType.TYPE, ElementType.METHOD&#125;)
+</code></pre>
+<blockquote>
+<p>测试测试测试</p>
+</blockquote>
+<h3 id="2、Retention"><a href="#2、Retention" class="headerlink" title="2、Retention"></a>2、Retention</h3>
       
     </div>
 

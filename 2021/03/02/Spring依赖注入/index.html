@@ -31,7 +31,7 @@
 <meta property="og:description" content="Java注解(Annotation)本质上来说Annotation(注解)是Java推出的一种注释机制。和普通注释的显著区别就是，Annotation可以在编译、运行阶段读取。因此，可以借助它来实现一些增强功能。  Annotation类里可以继续引用其他的Annotation类  1、Targetjava.lang.annotation.Target自身也是一个注解，它只有一个数组属性，用预设定">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-02T08:11:02.000Z">
-<meta property="article:modified_time" content="2021-03-02T09:02:54.695Z">
+<meta property="article:modified_time" content="2021-03-02T09:23:43.163Z">
 <meta property="article:author" content="FiveMountain">
 <meta name="twitter:card" content="summary">
 
@@ -147,7 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E6%B3%A8%E8%A7%A3-Annotation"><span class="nav-number">1.</span> <span class="nav-text">Java注解(Annotation)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81Target"><span class="nav-number">1.1.</span> <span class="nav-text">1、Target</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E6%B3%A8%E8%A7%A3-Annotation"><span class="nav-number">1.</span> <span class="nav-text">Java注解(Annotation)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81Target"><span class="nav-number">1.1.</span> <span class="nav-text">1、Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81Retention"><span class="nav-number">1.2.</span> <span class="nav-text">2、Retention</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -225,7 +225,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-03-02 16:11:02 / 修改时间：17:02:54" itemprop="dateCreated datePublished" datetime="2021-03-02T16:11:02+08:00">2021-03-02</time>
+      <time title="创建时间：2021-03-02 16:11:02 / 修改时间：17:23:43" itemprop="dateCreated datePublished" datetime="2021-03-02T16:11:02+08:00">2021-03-02</time>
     </span>
 
   
@@ -244,9 +244,30 @@
 </blockquote>
 <h3 id="1、Target"><a href="#1、Target" class="headerlink" title="1、Target"></a>1、Target</h3><p><code>java.lang.annotation.Target</code>自身也是一个注解，它只有一个数组属性，用预设定该注解的目标范围，如可以作用于类或方法等。由于是数组，所以可以设定多个范围。<br>具体可以作用的类型配置在<code>java.lang.annotation.ElementType</code>枚举类中，常用的有：</p>
 <ul>
-<li>ElementType.TYPE</li>
+<li>ElementType.TYPE<blockquote>
+<p>可以作用于类、接口类、枚举类上</p>
+</blockquote>
+</li>
+<li>ElementType.FIELD<blockquote>
+<p>可以作用于类的属性上</p>
+</blockquote>
+</li>
+<li>ElementType.METHOD<blockquote>
+<p>可以作用于类的方法上</p>
+</blockquote>
+</li>
+<li>ElementType.PARAMETER<blockquote>
+<p>可以作用于类的参数</p>
+</blockquote>
+</li>
 </ul>
-
+<p>如果想同时作用于类和方法上，可以</p>
+<pre><code>@Target(&#123;ElementType.TYPE, ElementType.METHOD&#125;)
+</code></pre>
+<blockquote>
+<p>测试测试测试</p>
+</blockquote>
+<h3 id="2、Retention"><a href="#2、Retention" class="headerlink" title="2、Retention"></a>2、Retention</h3>
     </div>
 
     
