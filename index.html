@@ -219,7 +219,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-03-02 16:11:02 / 修改时间：20:00:23" itemprop="dateCreated datePublished" datetime="2021-03-02T16:11:02+08:00">2021-03-02</time>
+      <time title="创建时间：2021-03-02 16:11:02 / 修改时间：20:13:19" itemprop="dateCreated datePublished" datetime="2021-03-02T16:11:02+08:00">2021-03-02</time>
     </span>
 
   
@@ -300,7 +300,7 @@
 <p>如果要启动IoC容器，可以运行下面的代码</p>
 <pre><code>ApplicationContext context = new AnnotationConfigApplicationContext(&quot;fm.douban&quot;);
 </code></pre>
-<p>这段代码的含义就是启动IoC容器，并且会自动加载包<code>fm,douban</code>下的Bean(引用了Spring注解的类)</p>
+<p>这段代码的含义就是启动IoC容器，并且会自动加载包<code>fm.douban</code>下的Bean(引用了Spring注解的类)</p>
 <p><code>AnnotationConfigApplicationContext</code>类的构造函数有两种</p>
 <ul>
 <li><code>AnnotationConfigApplicationContext(String ... basePackages)</code>根据包名实例化</li>
@@ -314,6 +314,14 @@
 <li><code>org.springframework.stereotype.Repository</code><br><code>@Repsitory</code>作用于持久化相关Bean</li>
 </ul>
 <p><strong>依赖注入的第一步是完成容器的启动，第二步就是真正的完成依赖注入行为了</strong></p>
+<p>依赖注入使得到其他Bean实例相当简单，只需在属性上添加注解，例如</p>
+<pre><code>@Autowired
+private SongService songService;
+</code></pre>
+<blockquote>
+<p>Autowired完整的类路径是<code>org.springframework.beans.factory.annotation.Autowired</code></p>
+</blockquote>
+<p>当然还有一个前提条件，就是当前的类是Spring Bean(在类前添加合适注解，如<code>@Service</code>)</p>
 
       
     </div>
