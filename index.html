@@ -219,7 +219,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-03-03 06:45:53 / 修改时间：14:48:00" itemprop="dateCreated datePublished" datetime="2021-03-03T06:45:53+08:00">2021-03-03</time>
+      <time title="创建时间：2021-03-03 06:45:53 / 修改时间：14:58:26" itemprop="dateCreated datePublished" datetime="2021-03-03T06:45:53+08:00">2021-03-03</time>
     </span>
 
   
@@ -324,7 +324,36 @@ public String getFoos(@RequestParam(&quot;id&quot;) String id) &#123;
     return &quot;ID: &quot; + id;
 &#125;
 </code></pre>
-<p>一般把这种输出JSON数据的方法称为API</p>
+<p>返回Java对象的方式</p>
+<pre><code>public class User&#123;
+    private String id;
+    private Stirng name;
+    // 省略了 getter、setter
+&#125;
+
+public class UserControl&#123;
+    //缓存 User 数据
+    private static Map&lt;String,User&gt; users = new HashMap();
+
+    /**
+      * 初始化数据
+      */
+    @PostConstruct
+    public void init()&#123;
+        User user = new User();
+        user.setId(&quot;100&quot;);
+        user.setName(&quot;ykd&quot;);
+        users.put(user.getId(),user);
+    &#125;
+
+    @GetMapping(&quot;/api/user&quot;)
+    @ResponseBody
+    public User getUser(@RequestParam(&quot;id&quot;) String id) &#123;
+        return users.get(id);
+    &#125;
+&#125;
+</code></pre>
+<p>Spring MVC会自动把对象转化成JSON字符串输出到网页<br>一般把这种输出JSON数据的方法称为API</p>
 
       
     </div>
