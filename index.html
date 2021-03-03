@@ -219,7 +219,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-03-03 15:02:16 / 修改时间：16:23:43" itemprop="dateCreated datePublished" datetime="2021-03-03T15:02:16+08:00">2021-03-03</time>
+      <time title="创建时间：2021-03-03 15:02:16 / 修改时间：16:56:54" itemprop="dateCreated datePublished" datetime="2021-03-03T15:02:16+08:00">2021-03-03</time>
     </span>
 
   
@@ -292,6 +292,50 @@ public class SongListControl &#123;
 <blockquote>
 <p>如果对象包含对象，可以用<code>.</code>一直调出来，前提是这个对象是POJO类</p>
 </blockquote>
+<h2 id="Thymeleaf循环语句"><a href="#Thymeleaf循环语句" class="headerlink" title="Thymeleaf循环语句"></a>Thymeleaf循环语句</h2><pre><code>&lt;ul th:each=&quot;song : $&#123;songs&#125;&quot;&gt;
+    &lt;li th:text=&quot;$&#123;song.name&#125;&quot;&gt;歌曲名称&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>Thymeleaf除了支持List数据类型，还可以支持数组、Map(类似Java的for语句，集合类都支持)</p>
+<h3 id="打印列表的索引值"><a href="#打印列表的索引值" class="headerlink" title="打印列表的索引值"></a>打印列表的索引值</h3><pre><code>&lt;ul th:each=&quot;song, it : $&#123;songs&#125;&quot;&gt;
+    &lt;li&gt;
+        &lt;span th:text=&quot;$&#123;it.count&#125;&quot;&gt;&lt;/span&gt;
+        &lt;span th:text=&quot;$&#123;song.name&#125;&quot;&gt;&lt;/span&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p><code>it</code>为可选参数，如果定义了就可以通过这个it对象获取更多关于统计的需求，具体参数如下</p>
+<ul>
+<li><code>it.index</code><blockquote>
+<p>当前迭代对象的index(从0开始计算)，从0开始显示行数</p>
+</blockquote>
+</li>
+<li><code>it.count</code><blockquote>
+<p>当前迭代对象的index(从1开始计算)，显示行数</p>
+</blockquote>
+</li>
+<li><code>it.size</code><blockquote>
+<p>被迭代对象的大小，获取列表长度</p>
+</blockquote>
+</li>
+<li><code>it.current</code><blockquote>
+<p>当前迭代变量，等同于<code>song</code></p>
+</blockquote>
+</li>
+<li><code>it.even/odd</code><blockquote>
+<p>布尔值，当前循环是否是偶数/奇数(从0开始计算)</p>
+</blockquote>
+</li>
+<li><code>it.first</code><blockquote>
+<p>布尔值，当前循环是否是第一个</p>
+</blockquote>
+</li>
+<li><code>it.last</code><blockquote>
+<p>布尔值，当前循环是否是最后一个</p>
+</blockquote>
+</li>
+</ul>
+<p>模板中的布尔值需要结合条件语句来处理</p>
 
       
     </div>
