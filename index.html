@@ -219,7 +219,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-03-03 15:02:16 / 修改时间：18:07:55" itemprop="dateCreated datePublished" datetime="2021-03-03T15:02:16+08:00">2021-03-03</time>
+      <time title="创建时间：2021-03-03 15:02:16 / 修改时间：21:04:48" itemprop="dateCreated datePublished" datetime="2021-03-03T15:02:16+08:00">2021-03-03</time>
     </span>
 
   
@@ -409,6 +409,38 @@ public class SongListControl &#123;
 <blockquote>
 <p><code>[[]]</code>是用来替代<code>th:text</code>的，不能替代所有<code>th:</code>标签</p>
 </blockquote>
+<h2 id="Thymeleaf条件语句"><a href="#Thymeleaf条件语句" class="headerlink" title="Thymeleaf条件语句"></a>Thymeleaf条件语句</h2><pre><code>// 条件为true 执行渲染
+&lt;span th:if=&quot;$&#123;user.sex == &#39;male&#39;&#125;&quot;&gt;男&lt;/span&gt;
+
+// 条件为false 执行渲染
+&lt;span th:unless=&quot;$&#123;user.sex == &#39;male&#39;&#125;&quot;&gt;女&lt;/span&gt;
+</code></pre>
+<h3 id="strings逻辑判断"><a href="#strings逻辑判断" class="headerlink" title="strings逻辑判断"></a>strings逻辑判断</h3><p><strong>isEmpty</strong></p>
+<p>检查字符串变量是否为空(or null)，在检查之前会先执行trim()操作，去掉空格</p>
+<pre><code>$&#123;#strings.isEmpty(name)&#125;
+
+$&#123;#strings.arrayIsEmpty(name)&#125;  // 数组
+
+$&#123;#strings.listIsEmpty(name)&#125;   // 集合
+</code></pre>
+<p><strong>contains</strong><br>检查字符串变量是否包含片段</p>
+<pre><code>$&#123;strings.contains(name, &#39;abc&#39;)&#125;
+</code></pre>
+<p>其它常用的<code>#strings</code>判断语法</p>
+<ul>
+<li><code>$&#123;#strings.containsIgnoreCase(name, &#39;&#39;abc)&#125;</code><blockquote>
+<p>忽略大小的情况下，判断是否包含指定的字符串</p>
+</blockquote>
+</li>
+<li><code>$&#123;#strings.startsWith(name, &#39;abc&#39;)&#125;</code><blockquote>
+<p>判断字符串是否以abc开头</p>
+</blockquote>
+</li>
+<li><code>$&#123;#strings.endsWith(name, &#39;abc&#39;)&#125;</code><blockquote>
+<p>判断字符串是否以abc结束</p>
+</blockquote>
+</li>
+</ul>
 
       
     </div>
