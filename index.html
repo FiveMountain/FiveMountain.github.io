@@ -219,7 +219,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-03-03 15:02:16 / 修改时间：15:18:13" itemprop="dateCreated datePublished" datetime="2021-03-03T15:02:16+08:00">2021-03-03</time>
+      <time title="创建时间：2021-03-03 15:02:16 / 修改时间：16:23:43" itemprop="dateCreated datePublished" datetime="2021-03-03T15:02:16+08:00">2021-03-03</time>
     </span>
 
   
@@ -234,16 +234,17 @@
     <div class="post-body" itemprop="articleBody">
           <h2 id="Thymeleaf入门"><a href="#Thymeleaf入门" class="headerlink" title="Thymeleaf入门"></a>Thymeleaf入门</h2><p>Thymeleaf是一个模板框架，可以支持多种格式的内容动态渲染</p>
 <p>通过模板引擎，可以把<strong>Java对象数据+模板页面</strong>动态的渲染出一个真实的HTML页面来</p>
-<h3 id="如何初始化Thymeleaf"><a href="#如何初始化Thymeleaf" class="headerlink" title="如何初始化Thymeleaf"></a>如何初始化Thymeleaf</h3><h4 id="添加Maven依赖"><a href="#添加Maven依赖" class="headerlink" title="添加Maven依赖"></a>添加Maven依赖</h4><pre><code>&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre>
-<h4 id="数据传递"><a href="#数据传递" class="headerlink" title="数据传递"></a>数据传递</h4><p>只需在方法参数里引入一个<code>Model</code>对象，就可以通过这个Model对象传递数据到页面中了</p>
-<pre><code>import org.springframework.ui.Model;
-
-
-@Controller
+<h3 id="如何初始化Thymeleaf"><a href="#如何初始化Thymeleaf" class="headerlink" title="如何初始化Thymeleaf"></a>如何初始化Thymeleaf</h3><ol>
+<li><p><strong>添加Maven依赖</strong></p>
+ <dependency>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-starter-thymeleaf</artifactId>
+ </dependency></li>
+<li><p><strong>数据传递</strong><br>只需在方法参数里引入一个<code>Model</code>对象，就可以通过这个Model对象传递数据到页面中了</p>
+<p> import org.springframework.ui.Model;</p>
+</li>
+</ol>
+<pre><code>@Controller
 public class SongListControl &#123;
     @Autowired
     private SongListService songListService;
@@ -260,7 +261,38 @@ public class SongListControl &#123;
     &#125;
 &#125;
 </code></pre>
-<h4 id="模板文件"><a href="#模板文件" class="headerlink" title="模板文件"></a>模板文件</h4>
+<ol start="3">
+<li><strong>模板文件</strong><br>Spring MVC中对模板文件有固定的存放位置<code>src/main/resources/templates</code><br>所以上面的<code>return &quot;songList&quot;</code>其实会去查找<code>src/main/resources/templates/songList.html</code>文件</li>
+</ol>
+<p>模板文件内容如下</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/songList.css&quot; /&gt;
+        &lt;title&gt;豆瓣歌单&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1 th:text=&quot;$&#123;songList.name&#125;&quot;&gt;&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="Thymeleaf变量"><a href="#Thymeleaf变量" class="headerlink" title="Thymeleaf变量"></a>Thymeleaf变量</h2><p>上面用到的<code>th:text=&quot;$&#123;songList.name&#125;&quot;</code>就是使用变量技术</p>
+<p>为了不破坏HTML结构，Thymeleaf采用自定义HTML属性的方式来生成动态内容</p>
+<p><code>th:text</code>这个属性就是Thymeleaf自定义的HTML标签属性，<code>th</code>是Thymeleaf的缩写<br><code>th:text</code>语法的作用就是会动态替换掉HTML标签的内部内容</p>
+<p>一般情况下，模板的变量都是会存放在模板上下文中，所以想要调用变量，就需要先设置变量到模板上下文中去</p>
+<pre><code>model.addAttribute(&quot;songList&quot;, songList);
+</code></pre>
+<p><strong>对象变量</strong></p>
+<p>模板语言还可以支持复杂对象的输出，可以使用<code>.</code>把属性调用出来</p>
+<pre><code>&lt;span th:text=&quot;$&#123;song.id&#125;&quot;&gt;&lt;/span&gt;
+</code></pre>
+<blockquote>
+<p>如果对象包含对象，可以用<code>.</code>一直调出来，前提是这个对象是POJO类</p>
+</blockquote>
+
       
     </div>
 
