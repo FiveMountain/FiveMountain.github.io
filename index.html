@@ -219,7 +219,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-03-03 06:45:53 / 修改时间：11:37:58" itemprop="dateCreated datePublished" datetime="2021-03-03T06:45:53+08:00">2021-03-03</time>
+      <time title="创建时间：2021-03-03 06:45:53 / 修改时间：14:48:00" itemprop="dateCreated datePublished" datetime="2021-03-03T06:45:53+08:00">2021-03-03</time>
     </span>
 
   
@@ -311,6 +311,20 @@ public String index(@RequestParam(&quot;id&quot;) String id, @RequestParam(&quot
 <p>基础的boolean、int、String数据类型可以直接自动转化</p>
 </blockquote>
 <p>如果在Request方法声明了多个参数，那么URL访问的时候就必须要传递该参数，否则访问不到</p>
+<h3 id="GetMapping"><a href="#GetMapping" class="headerlink" title="@GetMapping"></a>@GetMapping</h3><p><code>@RequestMapping</code>注解默认支持所有的HTTP Method。放开所有的Http Method不是很安全，一般还是会明确指定method，如get请求<br>可以使用<code>@GetMapping</code>替换<code>@RequestMapping</code></p>
+<h3 id="非必须传递参数"><a href="#非必须传递参数" class="headerlink" title="非必须传递参数"></a>非必须传递参数</h3><p>如果访问URL时不想某个参数必须传递，可以修改一下参数的注解</p>
+<pre><code>(@RequestParam(name=&quot;pageNum&quot;,required=false) int pageNum, @RequestParam(&quot;id&quot;) String id)
+</code></pre>
+<blockquote>
+<p>方法定义参数的顺序和URL的参数顺序无关</p>
+</blockquote>
+<h3 id="输出JSON数据"><a href="#输出JSON数据" class="headerlink" title="输出JSON数据"></a>输出JSON数据</h3><pre><code>@GetMapping(&quot;/api/foos&quot;)
+@ResponseBody
+public String getFoos(@RequestParam(&quot;id&quot;) String id) &#123;
+    return &quot;ID: &quot; + id;
+&#125;
+</code></pre>
+<p>一般把这种输出JSON数据的方法称为API</p>
 
       
     </div>
