@@ -219,7 +219,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-03-03 15:02:16 / 修改时间：16:56:54" itemprop="dateCreated datePublished" datetime="2021-03-03T15:02:16+08:00">2021-03-03</time>
+      <time title="创建时间：2021-03-03 15:02:16 / 修改时间：18:07:55" itemprop="dateCreated datePublished" datetime="2021-03-03T15:02:16+08:00">2021-03-03</time>
     </span>
 
   
@@ -336,6 +336,79 @@ public class SongListControl &#123;
 </li>
 </ul>
 <p>模板中的布尔值需要结合条件语句来处理</p>
+<h2 id="Thymeleaf表达式"><a href="#Thymeleaf表达式" class="headerlink" title="Thymeleaf表达式"></a>Thymeleaf表达式</h2><p>主要用于两种场景</p>
+<ul>
+<li>字符串处理</li>
+<li>数据转化</li>
+</ul>
+<h3 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h3><pre><code>// 字符串拼接
+&lt;span th:text=&quot;$&#123;&#39;00:00/&#39; + $&#123;totalTime&#125;&#125;&quot;&gt;&lt;/span&gt;
+
+// 拼接优化
+&lt;span th:text=&quot;|00:00/$&#123;totalTime&#125;|&quot;&gt;&lt;/span&gt;
+</code></pre>
+<h3 id="数据转化"><a href="#数据转化" class="headerlink" title="数据转化"></a>数据转化</h3><p>处理<code>LocalDate</code>和<code>LocalDateTime</code>类的依赖</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.thymeleaf.extras&lt;/groupId&gt;
+    &lt;artifactId&gt;thymeleaf-extras-java8time&lt;/artifactId&gt;
+    &lt;version&gt;3.0.4.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>这个库会自动添加一个新的工具类<code>temporals</code></p>
+<p>变量使用的是<code>$&#123;变量名&#125;</code>，工具类使用的是<code>#&#123;工具类&#125;</code></p>
+<p><strong>dates/temporals</strong></p>
+<p>dates和temporals支持的方法是一样的，只是支持的类型不同<br>dates支持的是Date类，temporals支持的是LocalDate和LocalDateTime</p>
+<blockquote>
+<p>java.util.Date类和LocalDateTime类功能是一样的，不同的是LocalDateTime是Java8才出现的，一些老的应用还是用Date类</p>
+</blockquote>
+<p>一般使用dates/temporals用于处理日期类型到字符串的转化，比如显示<code>年月日</code></p>
+<pre><code>&lt;p th:text=&quot;$&#123;#dates.format(dateVar, &#39;yyyy-MM-dd HH:mm:ss&#39;)&#125;&quot;&gt;&lt;/p&gt;
+&lt;p th:text=&quot;$&#123;#dates.format(dateVar, &#39;yyyy年MM月dd日 HH时mm分ss秒&#39;)&#125;&quot;&gt;&lt;/p&gt;
+</code></pre>
+<p>如果日期类型是<code>LocalDate/LocalDateTime</code>就把<code>#dates</code>换成<code>#temporals</code></p>
+<p><strong>strings</strong></p>
+<p>除了日期方法，<code>#strings</code>也是使用较多的，支持字符串的数据处理</p>
+<ul>
+<li><code>$&#123;#strings.toUpperCase(name)&#125;</code><blockquote>
+<p>把字符串改成全大写</p>
+</blockquote>
+</li>
+<li><code>$&#123;#strings.toLowerCase(name)&#125;</code><blockquote>
+<p>把字符串改成全小写</p>
+</blockquote>
+</li>
+<li><code>$&#123;#strings.arrayJoin(array, &#39;,&#39;)&#125;</code><blockquote>
+<p>把数组合并成一个字符串，并以<code>,</code>连接</p>
+</blockquote>
+</li>
+<li><code>$&#123;#strings.arraySplit(str, &#39;,&#39;)&#125;</code><blockquote>
+<p>把字符串分隔成一个数组，并以<code>,</code>作为分隔符</p>
+</blockquote>
+</li>
+<li><code>$&#123;#strings.trim(str)&#125;</code><blockquote>
+<p>去掉字符串左右两边空格</p>
+</blockquote>
+</li>
+<li><code>$&#123;#strings.length(str)&#125;</code><blockquote>
+<p>得到字符串的长度，也支持获取集合类的长度</p>
+</blockquote>
+</li>
+<li><code>$&#123;#strings.equals(str1, str2)&#125;</code><blockquote>
+<p>比较两个字符串是否相等</p>
+</blockquote>
+</li>
+<li><code>$&#123;#strings.equalsIgnoreCase(str1, str2)&#125;</code><blockquote>
+<p>忽略大小写后比较两个字符串是否相等</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>内联表达式</strong></p>
+<pre><code>&lt;span&gt;Hello [[$&#123;msg&#125;]]&lt;/span&gt;
+</code></pre>
+<p>上面的<code>[[变量]]</code>这种格式就是内联表达式，支持直接在HTML中调用变量</p>
+<blockquote>
+<p><code>[[]]</code>是用来替代<code>th:text</code>的，不能替代所有<code>th:</code>标签</p>
+</blockquote>
 
       
     </div>
