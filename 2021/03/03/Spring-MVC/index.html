@@ -31,7 +31,7 @@
 <meta property="og:description" content="Spring Boot 介绍Spring Boot的核心还是Spring(所以无需单独去管理Spring的Maven依赖)，只是多了一些工程化的方案：  如Java Web容器的嵌入集成，Spring Boot默认集成了Tomcat Spring Boot还自定义了工程打包格式，通过这个直接把一个Java Web工程转化成普通的Java工程，启动一个main方法就可以把Spring工程启动起来 S">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-02T22:45:53.000Z">
-<meta property="article:modified_time" content="2021-03-02T23:06:04.922Z">
+<meta property="article:modified_time" content="2021-03-03T02:48:52.334Z">
 <meta property="article:author" content="FiveMountain">
 <meta name="twitter:card" content="summary">
 
@@ -147,7 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot-%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">Spring Boot 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Controller-%E5%85%A5%E9%97%A8"><span class="nav-number">2.</span> <span class="nav-text">Spring Controller 入门</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot-%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">Spring Boot 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Controller-%E5%85%A5%E9%97%A8"><span class="nav-number">2.</span> <span class="nav-text">Spring Controller 入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Controller%E6%B3%A8%E8%A7%A3"><span class="nav-number">2.1.</span> <span class="nav-text">1. Controller注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8A%A0%E8%BD%BD%E7%BD%91%E9%A1%B5"><span class="nav-number">2.2.</span> <span class="nav-text">2. 加载网页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-RequestMapping%E6%B3%A8%E8%A7%A3"><span class="nav-number">2.3.</span> <span class="nav-text">3. RequestMapping注解</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -225,7 +225,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-03-03 06:45:53 / 修改时间：07:06:04" itemprop="dateCreated datePublished" datetime="2021-03-03T06:45:53+08:00">2021-03-03</time>
+      <time title="创建时间：2021-03-03 06:45:53 / 修改时间：10:48:52" itemprop="dateCreated datePublished" datetime="2021-03-03T06:45:53+08:00">2021-03-03</time>
     </span>
 
   
@@ -246,7 +246,36 @@
 <li>Spring Boot还提供了标准的属性配置文件，支持应用的参数动态配置</li>
 </ul>
 <p>创建Spring Boot工程：<a target="_blank" rel="noopener" href="https://start.spring.io/">https://start.spring.io/</a></p>
-<h2 id="Spring-Controller-入门"><a href="#Spring-Controller-入门" class="headerlink" title="Spring Controller 入门"></a>Spring Controller 入门</h2>
+<h2 id="Spring-Controller-入门"><a href="#Spring-Controller-入门" class="headerlink" title="Spring Controller 入门"></a>Spring Controller 入门</h2><p>在Spring Boot方案里，一个网页请求到了服务器后，首先进入的是Java Web服务器，然后进入到Spring Boot应用，最后匹配到某一个Spring Controller(也是一个Spring Bean)，然后路由到具体某一个Bean的方法，执行完后返回结果，输出到客户端。<br>从这个流程里可以看出，只要掌握Spring Controller就可以自己提供Web服务了</p>
+<p>Spring Controller技术有三个核心点：</p>
+<ul>
+<li>Bean的配置：Controller注解运用</li>
+<li>网络资源的加载：加载网页</li>
+<li>网址路由的配置：RequestMapping注解运用</li>
+</ul>
+<h3 id="1-Controller注解"><a href="#1-Controller注解" class="headerlink" title="1. Controller注解"></a>1. Controller注解</h3><p>Spring Controller本身也是一个Spring Bean，只是它多提供了Web能力。<br>只需要在类上提供一个<code>@Controller</code>注解就可以了</p>
+<blockquote>
+<p>Spring大多数是基于接口开发的，但是没有接口也是可以工作的。Spring Controller一般情况下不需要特意实现接口</p>
+</blockquote>
+<h3 id="2-加载网页"><a href="#2-加载网页" class="headerlink" title="2. 加载网页"></a>2. 加载网页</h3><p>在Spring Boot应用中，一般把网页存放在<code>src/main/resources/static</code>目录下。<br>在Controller中，会<strong>自动加载static下</strong>的HTML内容，所以通过Spring Boot建设网站也非常简单</p>
+<pre><code>import org.springframework.stereotype.Controller;
+
+@Controller
+public class HelloControl &#123;
+    public String say() &#123;
+        return &quot;hello.html&quot;;
+    &#125;
+&#125;
+</code></pre>
+<p>在上面代码中，say()方法返回类型为<code>String</code>；<code>return &quot;hello.html&quot;;</code>返回的是HTML文件路径</p>
+<blockquote>
+<p>执行这段代码的时候，Spring Boot实际加载的是<code>src/main/resources/static/hello.html</code>文件<br>文件路径不需要额外添加<code>static</code></p>
+</blockquote>
+<p><strong>static子目录</strong></p>
+<p>如果HTML文件路径为<code>src/.../static/html/hello.html</code>，那么return语句应为</p>
+<pre><code>return &quot;html/hello.html&quot;;
+</code></pre>
+<h3 id="3-RequestMapping注解"><a href="#3-RequestMapping注解" class="headerlink" title="3. RequestMapping注解"></a>3. RequestMapping注解</h3>
     </div>
 
     
