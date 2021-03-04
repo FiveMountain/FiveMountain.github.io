@@ -217,10 +217,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-03-03 15:02:16 / 修改时间：22:22:26" itemprop="dateCreated datePublished" datetime="2021-03-03T15:02:16+08:00">2021-03-03</time>
+      <time title="创建时间：2021-03-03 15:02:16" itemprop="dateCreated datePublished" datetime="2021-03-03T15:02:16+08:00">2021-03-03</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-03-04 10:18:01" itemprop="dateModified" datetime="2021-03-04T10:18:01+08:00">2021-03-04</time>
+      </span>
 
   
 </div>
@@ -442,6 +448,92 @@ $&#123;#strings.listIsEmpty(name)&#125;   // 集合
 </li>
 </ul>
 <h2 id="Spring-Validation"><a href="#Spring-Validation" class="headerlink" title="Spring Validation"></a>Spring Validation</h2><p>处理表单数据的验证</p>
+<h3 id="JSR-380"><a href="#JSR-380" class="headerlink" title="JSR 380"></a>JSR 380</h3><p>JSR是Java Specification Requests的缩写，意思是Java规范提案。指向JCP(Java Community Process)提出新增一个标准化技术规范的正式请求。<br>JSR 380就是Bean Validation 2.0，这个就是Bean验证的规范，这里的Bean就是实例化后的POJO类。<br>JSR 380提案的规范可以通过下面的依赖添加到工程里</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;jakarta.validation&lt;/groupId&gt;
+    &lt;artifactId&gt;jakarta.validation-api&lt;/artifactId&gt;
+    &lt;version&gt;2.0.1&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>Spring Validation也是JSR 380提案的一个实现方案</p>
+<h3 id="Validation注解"><a href="#Validation注解" class="headerlink" title="Validation注解"></a>Validation注解</h3><p>JSR 380定义了一些注解用于数据校验，这些注解可以直接设置在Bean属性上</p>
+<ul>
+<li><code>@NotNull</code><blockquote>
+<p>不允许为null对象</p>
+</blockquote>
+</li>
+<li><code>@AssertTrue</code><blockquote>
+<p>是否为true</p>
+</blockquote>
+</li>
+<li><code>@Size</code><blockquote>
+<p>约定字符串的长度</p>
+</blockquote>
+</li>
+<li><code>@Min</code><blockquote>
+<p>字符串的最小长度</p>
+</blockquote>
+</li>
+<li><code>@Max</code><blockquote>
+<p>字符串的最大长度</p>
+</blockquote>
+</li>
+<li><code>@Email</code><blockquote>
+<p>是否是邮箱格式</p>
+</blockquote>
+</li>
+<li><code>@NotEmpty</code><blockquote>
+<p> 不允许为null或为空，可用于判断字符串、集合，如Map、数组、List</p>
+</blockquote>
+</li>
+<li><code>@NotBlank</code><blockquote>
+<p>不允许为null和空格</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>import javax.validation.constraints.*;
+
+public class User &#123;
+    @NotEmpty(message = &quot;名称不能为null&quot;)
+    private String name;
+
+    @Min(message = &quot;年龄必须大于等于18岁&quot;)
+    @Max(message = &quot;年龄必须小于等于120岁&quot;)
+    private int age;
+
+    @NotEmpty(message = &quot;邮箱必须输入&quot;)
+    @Email(message = &quot;邮箱不正确&quot;)
+    private String email;
+
+    // standard setters and getters
+&#125;
+</code></pre>
+<blockquote>
+<p>大多数情况下，建议使用NotEmpty替代NotNull、NotBlank</p>
+</blockquote>
+<p>校验的注解是可以累加的，系统会按顺序执行校验</p>
+<h3 id="执行校验"><a href="#执行校验" class="headerlink" title="执行校验"></a>执行校验</h3><pre><code>@Controller
+public class UserControl &#123;
+    @GetMapping(&quot;/user/add.html&quot;)
+    public String addUser() &#123;
+        return &quot;user/addUser&quot;;
+    &#125;
+
+    @PostMapping(&quot;/user/save&quot;)
+    public String saveUser(@Valid User user, BindingResult errors) &#123;
+        if(errors.hasErrors()) &#123;
+            // 校验不通过，返回用户编辑界面
+            return &quot;user/addUser&quot;;
+        &#125;
+
+        // 校验通过
+        return &quot;user/addUserSuccess&quot;;
+    &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>@Valid 完整包路径<code>javax.validation.Valid;</code><br>BindingResult 类的路径是<code>org.springframework.validation.BindingResult</code></p>
+</blockquote>
 
       
     </div>
