@@ -225,7 +225,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-03-05 11:27:03" itemprop="dateModified" datetime="2021-03-05T11:27:03+08:00">2021-03-05</time>
+        <time title="修改时间：2021-03-05 15:39:33" itemprop="dateModified" datetime="2021-03-05T15:39:33+08:00">2021-03-05</time>
       </span>
 
   
@@ -640,6 +640,11 @@ public class UserControl &#123;
 <p>指定了布局的名称，这个一旦声明后，页面会被替换成layout的内容。注意不要指定布局名称错误，这里<code>&quot;layout&quot;</code>指的是<code>templates/layout.html</code></p>
 <p><strong>th:fragment=”content”</strong></p>
 <p>fragment是片段的意思，当页面渲染的时候，可以通过选择器指定使用这个片段。在<code>layout.html</code>文件的<code>th:include=&quot;::content&quot;</code>指定的就是这个值</p>
+<p>执行JS操作<br>    <a href="javascript:;" th:onclick="delBook([[${book.id}]])">删除</a></p>
+<p>其中，Thymeleaf对HTML属性的动态赋值的操作方法<br>    th:onclick=”delBook([[${book.id}]])”</p>
+<blockquote>
+<p>由于超链接有默认的打开链接行为，所以对于想要执行onclick的时候，一般设置<code>href=&quot;javascript:;&quot;</code></p>
+</blockquote>
 
       
     </div>
