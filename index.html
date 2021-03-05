@@ -155,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -185,6 +185,151 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/05/Spring-Boot-%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="FiveMountain">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FivMntBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/03/05/Spring-Boot-%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">Spring Boot 入门</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-03-05 15:40:29 / 修改时间：17:27:58" itemprop="dateCreated datePublished" datetime="2021-03-05T15:40:29+08:00">2021-03-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Spring-Boot-ComponentScan"><a href="#Spring-Boot-ComponentScan" class="headerlink" title="Spring Boot ComponentScan"></a>Spring Boot ComponentScan</h2><p>加了<code>@SpringBootApplication</code>注解的类是启动类，是整个系统的启动入口<br>Spring Boot框架会默认扫描<strong>启动类所在的包及其所有子包</strong>进行解析<br>在其之外的包则不会自动扫描，也不会自动实例化<code>Bean</code></p>
+<p><strong>解决办法</strong></p>
+<p>因此可以为启动类的注解<code>@SpringBootApplication</code>加一个参数，告知系统需要额外扫描的包</p>
+<pre><code>@SpringBootApplication(scanBasePackages=&#123;&quot;...&quot;, &quot;...&quot;&#125;)
+public class AppApplication &#123;
+    public static void main(String[] args) &#123;
+        SpringApplication.run(AppApplication.class, args);
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>参数名是<code>scanBasePackages</code></li>
+<li>参数值是一个字符串数组，用于指定所有需要自动扫描的包</li>
+</ul>
+<p><strong>另一种写法</strong></p>
+<p>如果不是<code>Spring Boot</code>启动类，可以使用独立的注解<code>@ComponentScan</code>，作用也是用于指定多个需要额外自动扫描的包。</p>
+<pre><code>@ComponentScan(&#123;&quot;...&quot;, &quot;...&quot;&#125;)
+public class SpringConfiguration &#123;
+    ... ...
+&#125;
+</code></pre>
+<p><strong>额外知识点</strong></p>
+<p>使用<code>@RestController</code>的类，所有方法都不会渲染<code>Thymeleaf</code>页面，而是都返回数据。等同于使用<code>@Controller</code>的类的方法上添加<code>@ResponseBody</code>注解，效果是一样的。但两个注解的包不同</p>
+<pre><code>org.springframework.stereotype.Controller;
+org.springframework.web.bind.annotation.RestController;
+</code></pre>
+<h2 id="Spring-Boot-Logger-运用"><a href="#Spring-Boot-Logger-运用" class="headerlink" title="Spring Boot Logger 运用"></a>Spring Boot Logger 运用</h2><p>在<code>Spring</code>这种比较复杂的系统中，<code>System.out.println()</code>打印的内容会输出到什么地方是不确定的。所以在企业级的项目中，都用日至系统来记录信息</p>
+<p>日志系统的两大优势：</p>
+<ol>
+<li>可以轻松控制日志是否输出</li>
+<li>可以灵活地配置日志的细节，例如输出格式等</li>
+</ol>
+<h3 id="1-配置"><a href="#1-配置" class="headerlink" title="1. 配置"></a>1. 配置</h3><p>修改<code>Spring Boot</code>系统的标准配置文件<code>application.properties</code>(在项目的<code>src/main/resources</code>目录下)，增加日志级别配置：</p>
+<pre><code>logging.level.root=info
+</code></pre>
+<p>表示所有日志(<code>root</code>)都为<code>info</code>级别<br>也可以为不同的包定义不同的级别</p>
+<pre><code>logging.level.com.test.app=info
+</code></pre>
+<p>就表示<code>com.test.app</code>包及其子包的所有类都输出<code>info</code>级别的日志</p>
+<p>常见的日志级别有</p>
+<ul>
+<li>ERROR (最高)<blockquote>
+<p>错误信息日志</p>
+</blockquote>
+</li>
+<li>WARN  (高)<blockquote>
+<p>暂时不出错但高风险的警告信息日志</p>
+</blockquote>
+</li>
+<li>INFO  (中)<blockquote>
+<p>一般的提示语、普通数据等不紧要的信息日志</p>
+</blockquote>
+</li>
+<li>DEBUG (低)<blockquote>
+<p>进开发阶段需要关注的调试信息日志</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>级别的作用</strong></p>
+<p><code>logging,level.root=warn</code>意味着不输出更低优先级的INFO、DEBUG日志，只输出WARN和更高优先级的ERROR日志。其余类比<br>在开发阶段配置为<code>DEBUG</code>，在项目发布时调整为<code>INFO</code>或更高级别，即可做到不改代码而控制只输出关心的日志</p>
+<h3 id="2-编码"><a href="#2-编码" class="headerlink" title="2. 编码"></a>2. 编码</h3><p>配置完成后，编码只需要实例化日志对象即可打印日志</p>
+<pre><code>import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.RestController;
+import javax.annotation.PostConstruct;
+
+@RestController
+public class SongListControl &#123;
+    private static final Logger LOG = LoggerFactory.getLogger(SongListControl.class);
+
+    @PostConstruct
+    public void init() &#123;
+        LOG.info(&quot;SongListControl 启动了&quot;);
+    &#125;
+&#125;
+</code></pre>
+<p>先定义一个类变量<code>LOG</code>，然后在<code>LOG.info()</code>方法的参数中输入日志内容<br>注意这里的方法名(<code>info()</code>)与日志级别一一对应</p>
+<p>定义类变量<code>LOG</code>的语句属于固定写法，至于要在不同的类中，修改<code>getLogger()</code>方法参数为当前的类名即可。这样就能识别每段日志的来源。</p>
+<blockquote>
+<p>修饰为<code>static final</code>的目的就是尽量复用，一个类无论多少个实例只需要一个日志对象。日志对象一旦定义也不需要修改</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
