@@ -217,10 +217,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-03-05 18:20:39 / 修改时间：18:22:36" itemprop="dateCreated datePublished" datetime="2021-03-05T18:20:39+08:00">2021-03-05</time>
+      <time title="创建时间：2021-03-05 18:20:39" itemprop="dateCreated datePublished" datetime="2021-03-05T18:20:39+08:00">2021-03-05</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-03-06 10:16:29" itemprop="dateModified" datetime="2021-03-06T10:16:29+08:00">2021-03-06</time>
+      </span>
 
   
 </div>
@@ -232,7 +238,27 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2>
+          <h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><p>在客户端与服务端通讯的过程中，服务端既要返回<code>Cookie</code>给客户端，也要读取客户端提交的<code>Cookie</code></p>
+<h3 id="读Cookie"><a href="#读Cookie" class="headerlink" title="读Cookie"></a>读Cookie</h3><p>为<code>control</code>类的方法增加一个<code>HttpServletRequest</code>参数，通过<code>request.getCookies()</code>取得<code>cookie</code>数组。然后再循环遍历数组即可</p>
+<blockquote>
+<p>系统会自动传入方法参数所需要的<code>HttpServletRequest</code>对象</p>
+</blockquote>
+<pre><code>import javax.sevlet.http.Cookie;
+import javax.sevlet.http.HttpServletRequest;
+
+@RequestMapping(&quot;/songlist&quot;)
+public Map index(HttpServletRequest request) &#123;
+    Map returnData = new HashMap();
+    returnData.put(&quot;result&quot;, &quot;this is song list&quot;);
+    returnData.put(&quot;author&quot;, songAuthor);
+
+    Cookie[] cookies = request.getCookies();
+    returnData.put(&quot;cookies&quot;, cookies);
+
+    return returnData;
+&#125;
+</code></pre>
+
       
     </div>
 
