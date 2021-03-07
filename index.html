@@ -299,7 +299,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-03-07 22:09:54" itemprop="dateModified" datetime="2021-03-07T22:09:54+08:00">2021-03-07</time>
+        <time title="修改时间：2021-03-07 22:30:59" itemprop="dateModified" datetime="2021-03-07T22:30:59+08:00">2021-03-07</time>
       </span>
 
   
@@ -335,7 +335,54 @@ public Map index(HttpServletRequest request) &#123;
 <blockquote>
 <p>cookie有很多属性值，各属性值的作用请<a target="_blank" rel="noopener" href="https://fivemountain.github.io/2021/03/07/cookie%E7%9A%84%E9%87%8D%E8%A6%81%E5%B1%9E%E6%80%A7/">点击查看文档</a></p>
 </blockquote>
-<h3 id="使用注解读取cookie"><a href="#使用注解读取cookie" class="headerlink" title="使用注解读取cookie"></a>使用注解读取cookie</h3>
+<h3 id="使用注解读取cookie"><a href="#使用注解读取cookie" class="headerlink" title="使用注解读取cookie"></a>使用注解读取cookie</h3><p>为<code>control</code>类的方法增加一个<code>@CookieValue(&quot;xxxx&quot;) String xxxx</code>参数即可，注意使用时要填入正确的<code>cookie</code>名字</p>
+<blockquote>
+<p>系统会自动解析并传入同名的<code>cookie</code></p>
+</blockquote>
+<pre><code>import org.springfarmework.web.bind.annotation.CookieValue;
+
+@RequestMapping(&quot;/songlist&quot;)
+public Map index(@CookieValue(&quot;JSESSIONID&quot;) String jSessionId) &#123;
+    Map returnData = new HashMap();
+    returnData.put(&quot;result&quot;, &quot;this is song list&quot;);
+    returnData.put(&quot;author&quot;, songAuthor);
+    returnData.put(&quot;JSESSIONID&quot;, jSessionId);
+
+    return returnData;
+&#125;
+</code></pre>
+<blockquote>
+<p>如果系统解析不到指定名字的cookie，使用次注解就会报错</p>
+</blockquote>
+<h3 id="写Cookie"><a href="#写Cookie" class="headerlink" title="写Cookie"></a>写Cookie</h3><p>为<code>control</code>类的方法增加一个<code>HttpServletResponse</code>参数，调用<code>response.addCookie()</code>方法添加<code>cookie</code>实例对象即可</p>
+<blockquote>
+<p>系统会自动传入方法参数所需要的<code>HttpServletResponse</code>对象</p>
+</blockquote>
+<pre><code>import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
+@RequestMapping(&quot;/songlist&quot;)
+public Map index(HttpServletResponse response) &#123;
+    Map returnData = new HashMap();
+    returnData.put(&quot;result&quot;, &quot;this is song list&quot;);
+    returnData.put(&quot;name&quot;, songName);
+
+    Cookie cookie = new Cookie(&quot;sessionId&quot;, &quot;CookieTestInfo&quot;);
+    // 设置的是cookie的域名，就是毁在哪个域名下生成cookie值
+    cookie.setDomain(&quot;example.com&quot;);
+    // 是cookie的路径，一般就是写到 / 
+    cookie.setPath(&quot;/&quot;);
+    // 设置cookie的最大存活时间，-1代表随浏览器的有效期
+    cookie.setMaxAge(-1);
+    // 设置是否只能服务器修改，浏览器端不能修改，安全有保障
+    cookie.setHttpOnly(false);
+    response.addCookie(cookie);
+
+    returnData.put(&quot;message&quot;, &quot;add cookie successful&quot;);
+    return returnData;
+&#125;
+</code></pre>
+
       
     </div>
 
