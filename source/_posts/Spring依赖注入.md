@@ -2,6 +2,7 @@
 title: Spring依赖注入
 date: 2021-03-02 16:11:02
 tags:
+- Spring Learning Notes
 ---
 ## Java注解(Annotation)
 本质上来说Annotation(注解)是Java推出的一种注释机制。和普通注释的显著区别就是，Annotation可以在编译、运行阶段读取。因此，可以借助它来实现一些增强功能。

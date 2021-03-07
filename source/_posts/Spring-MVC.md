@@ -2,6 +2,7 @@
 title: Spring MVC
 date: 2021-03-03 06:45:53
 tags:
+- Spring Learning Notes
 ---
 ## Spring Boot 介绍
 Spring Boot的核心还是Spring(所以无需单独去管理Spring的Maven依赖)，只是多了一些工程化的方案：
