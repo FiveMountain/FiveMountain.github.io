@@ -1,1796 +1,246 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
-
-<script class="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
-  </script>
-<meta property="og:type" content="website">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FivMntBlog</title><meta name="author" content="FiveMountain"><meta name="copyright" content="FiveMountain"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="FivMntBlog">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="FivMntBlog">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/null">
 <meta property="article:author" content="FiveMountain">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/null"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-03-08 09:07:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
-<link rel="canonical" href="http://example.com/">
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-<script class="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
-<title>FivMntBlog</title>
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
-
-
-
-
-  <noscript>
-  <style>
-  body { margin-top: 2rem; }
-
-  .use-motion .menu-item,
-  .use-motion .sidebar,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header {
-    visibility: visible;
-  }
-
-  .use-motion .header,
-  .use-motion .site-brand-container .toggle,
-  .use-motion .footer { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle,
-  .use-motion .custom-logo-image {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line {
-    transform: scaleX(1);
-  }
-
-  .search-pop-overlay, .sidebar-nav { display: none; }
-  .sidebar-panel { display: block; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">FivMntBlog</h1>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-</div>
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-  
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><hr/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">FivMntBlog</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">FivMntBlog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/03/07/cookie%E7%9A%84%E9%87%8D%E8%A6%81%E5%B1%9E%E6%80%A7/" title="cookie的重要属性">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="cookie的重要属性"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/07/cookie%E7%9A%84%E9%87%8D%E8%A6%81%E5%B1%9E%E6%80%A7/" title="cookie的重要属性">cookie的重要属性</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-07T13:26:14.000Z" title="发表于 2021-03-07 21:26:14">2021-03-07</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Pages/">Pages</a></span></div><div class="content">name名称
+value值
+domain表示cookie生效的域为null表示此cookie只对当前域名有效如果设置了域名，表示当前域名和子域名都有效
+path表示cookie生效的目录为null表示此cookie只对当前请求的URL路径有效如果设置了域名，表示当前URL路径和所有下级路径都有效/表示整个网站都生效
+maxAge有效时间，默认值为-1负数表示关闭浏览器就删除cookie0表示浏览器立即删除此cookie(cookie机制没有提供删除cookie的方法，因此通过设置该cookie即时失效实现删除cookie的效果。失效的cookie会被浏览器从cookie文件或内存中删除)整数表示多少秒后过期自动失效
+httpOnly安全性设置值为true表示通过js脚本将无法读取到cookie信息false表示不限制
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/03/05/Spring-Session/" title="Spring Session">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring Session"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/05/Spring-Session/" title="Spring Session">Spring Session</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-05T10:20:39.000Z" title="发表于 2021-03-05 18:20:39">2021-03-05</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Spring-Learning-Notes/">Spring Learning Notes</a></span></div><div class="content">Cookie在客户端与服务端通讯的过程中，服务端既要返回Cookie给客户端，也要读取客户端提交的Cookie
+读Cookie为control类的方法增加一个HttpServletRequest参数，通过request.getCookies()取得cookie数组。然后再循环遍历数组即可
 
-  <aside class="sidebar">
+系统会自动传入方法参数所需要的HttpServletRequest对象
 
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">FiveMountain</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap site-overview-item animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives">
-          <span class="site-state-item-count">7</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">分类</span>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">标签</span>
-      </div>
-  </nav>
-</div>
-
-
-
-        </div>
-      </div>
-    </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
-
-    
-  <div class="back-to-top" role="button">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-    <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/07/cookie%E7%9A%84%E9%87%8D%E8%A6%81%E5%B1%9E%E6%80%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="FiveMountain">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FivMntBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/07/cookie%E7%9A%84%E9%87%8D%E8%A6%81%E5%B1%9E%E6%80%A7/" class="post-title-link" itemprop="url">cookie的重要属性</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-03-07 21:26:14" itemprop="dateCreated datePublished" datetime="2021-03-07T21:26:14+08:00">2021-03-07</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-03-08 08:51:34" itemprop="dateModified" datetime="2021-03-08T08:51:34+08:00">2021-03-08</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Pages/" itemprop="url" rel="index"><span itemprop="name">Pages</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="name"><a href="#name" class="headerlink" title="name"></a>name</h3><p>名称</p>
-<h3 id="value"><a href="#value" class="headerlink" title="value"></a>value</h3><p>值</p>
-<h3 id="domain"><a href="#domain" class="headerlink" title="domain"></a>domain</h3><p>表示cookie生效的域<br>为null表示此cookie只对当前域名有效<br>如果设置了域名，表示当前域名和子域名都有效</p>
-<h3 id="path"><a href="#path" class="headerlink" title="path"></a>path</h3><p>表示cookie生效的目录<br>为null表示此cookie只对当前请求的URL路径有效<br>如果设置了域名，表示当前URL路径和所有下级路径都有效<br><code>/</code>表示整个网站都生效</p>
-<h3 id="maxAge"><a href="#maxAge" class="headerlink" title="maxAge"></a>maxAge</h3><p>有效时间，默认值为-1<br>负数表示关闭浏览器就删除cookie<br>0表示浏览器立即删除此cookie(cookie机制没有提供删除cookie的方法，因此通过设置该cookie即时失效实现删除cookie的效果。失效的cookie会被浏览器从cookie文件或内存中删除)<br>整数表示多少<strong>秒</strong>后过期自动失效</p>
-<h3 id="httpOnly"><a href="#httpOnly" class="headerlink" title="httpOnly"></a>httpOnly</h3><p>安全性设置<br>值为true表示通过js脚本将无法读取到cookie信息<br>false表示不限制</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/05/Spring-Session/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="FiveMountain">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FivMntBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/05/Spring-Session/" class="post-title-link" itemprop="url">Spring Session</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-03-05 18:20:39" itemprop="dateCreated datePublished" datetime="2021-03-05T18:20:39+08:00">2021-03-05</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-03-08 08:49:49" itemprop="dateModified" datetime="2021-03-08T08:49:49+08:00">2021-03-08</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Spring-Learning-Notes/" itemprop="url" rel="index"><span itemprop="name">Spring Learning Notes</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><p>在客户端与服务端通讯的过程中，服务端既要返回<code>Cookie</code>给客户端，也要读取客户端提交的<code>Cookie</code></p>
-<h3 id="读Cookie"><a href="#读Cookie" class="headerlink" title="读Cookie"></a>读Cookie</h3><p>为<code>control</code>类的方法增加一个<code>HttpServletRequest</code>参数，通过<code>request.getCookies()</code>取得<code>cookie</code>数组。然后再循环遍历数组即可</p>
-<blockquote>
-<p>系统会自动传入方法参数所需要的<code>HttpServletRequest</code>对象</p>
-</blockquote>
-<pre><code>import javax.sevlet.http.Cookie;
+import javax.sevlet.http.Cookie;
 import javax.sevlet.http.HttpServletRequest;
 
 @RequestMapping(&quot;/songlist&quot;)
 public Map index(HttpServletRequest request) &#123;
     Map returnData = new HashMap();
     returnData.put(&quot;result&quot;, &quot;this is song list&quot;);
-    returnData.put(&quot;author&quot;, songAuthor);
-
-    Cookie[] cookies = request.getCookies();
-    returnData.put(&quot;cookies&quot;, cookies);
-
-    return returnData;
-&#125;
-</code></pre>
-<blockquote>
-<p>cookie有很多属性值，各属性值的作用请<a target="_blank" rel="noopener" href="https://fivemountain.github.io/2021/03/07/cookie%E7%9A%84%E9%87%8D%E8%A6%81%E5%B1%9E%E6%80%A7/">点击查看文档</a></p>
-</blockquote>
-<h3 id="使用注解读取cookie"><a href="#使用注解读取cookie" class="headerlink" title="使用注解读取cookie"></a>使用注解读取cookie</h3><p>为<code>control</code>类的方法增加一个<code>@CookieValue(&quot;xxxx&quot;) String xxxx</code>参数即可，注意使用时要填入正确的<code>cookie</code>名字</p>
-<blockquote>
-<p>系统会自动解析并传入同名的<code>cookie</code></p>
-</blockquote>
-<pre><code>import org.springfarmework.web.bind.annotation.CookieValue;
-
-@RequestMapping(&quot;/songlist&quot;)
-public Map index(@CookieValue(&quot;JSESSIONID&quot;) String jSessionId) &#123;
-    Map returnData = new HashMap();
-    returnData.put(&quot;result&quot;, &quot;this is song list&quot;);
-    returnData.put(&quot;author&quot;, songAuthor);
-    returnData.put(&quot;JSESSIONID&quot;, jSessionId);
-
-    return returnData;
-&#125;
-</code></pre>
-<blockquote>
-<p>如果系统解析不到指定名字的cookie，使用次注解就会报错</p>
-</blockquote>
-<h3 id="写Cookie"><a href="#写Cookie" class="headerlink" title="写Cookie"></a>写Cookie</h3><p>为<code>control</code>类的方法增加一个<code>HttpServletResponse</code>参数，调用<code>response.addCookie()</code>方法添加<code>cookie</code>实例对象即可</p>
-<blockquote>
-<p>系统会自动传入方法参数所需要的<code>HttpServletResponse</code>对象</p>
-</blockquote>
-<pre><code>import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
-
-@RequestMapping(&quot;/songlist&quot;)
-public Map index(HttpServletResponse response) &#123;
-    Map returnData = new HashMap();
-    returnData.put(&quot;result&quot;, &quot;this is song list&quot;);
-    returnData.put(&quot;name&quot;, songName);
-
-    Cookie cookie = new Cookie(&quot;sessionId&quot;, &quot;CookieTestInfo&quot;);
-    // 设置的是cookie的域名，就是毁在哪个域名下生成cookie值
-    cookie.setDomain(&quot;example.com&quot;);
-    // 是cookie的路径，一般就是写到 / 
-    cookie.setPath(&quot;/&quot;);
-    // 设置cookie的最大存活时间，-1代表随浏览器的有效期
-    cookie.setMaxAge(-1);
-    // 设置是否只能服务器修改，浏览器端不能修改，安全有保障
-    cookie.setHttpOnly(false);
-    response.addCookie(cookie);
-
-    returnData.put(&quot;message&quot;, &quot;add cookie successful&quot;);
-    return returnData;
-&#125;
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/05/Spring-Boot-%E5%85%A5%E9%97%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="FiveMountain">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FivMntBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/05/Spring-Boot-%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">Spring Boot 入门</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-03-05 15:40:29" itemprop="dateCreated datePublished" datetime="2021-03-05T15:40:29+08:00">2021-03-05</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-03-08 08:49:00" itemprop="dateModified" datetime="2021-03-08T08:49:00+08:00">2021-03-08</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Spring-Learning-Notes/" itemprop="url" rel="index"><span itemprop="name">Spring Learning Notes</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Spring-Boot-ComponentScan"><a href="#Spring-Boot-ComponentScan" class="headerlink" title="Spring Boot ComponentScan"></a>Spring Boot ComponentScan</h2><p>加了<code>@SpringBootApplication</code>注解的类是启动类，是整个系统的启动入口<br>Spring Boot框架会默认扫描<strong>启动类所在的包及其所有子包</strong>进行解析<br>在其之外的包则不会自动扫描，也不会自动实例化<code>Bean</code></p>
-<p><strong>解决办法</strong></p>
-<p>因此可以为启动类的注解<code>@SpringBootApplication</code>加一个参数，告知系统需要额外扫描的包</p>
-<pre><code>@SpringBootApplication(scanBasePackages=&#123;&quot;...&quot;, &quot;...&quot;&#125;)
+    returnData.put(&quot;author&quot;, s ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/03/05/Spring-Boot-%E5%85%A5%E9%97%A8/" title="Spring Boot 入门">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring Boot 入门"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/05/Spring-Boot-%E5%85%A5%E9%97%A8/" title="Spring Boot 入门">Spring Boot 入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-05T07:40:29.000Z" title="发表于 2021-03-05 15:40:29">2021-03-05</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Spring-Learning-Notes/">Spring Learning Notes</a></span></div><div class="content">Spring Boot ComponentScan加了@SpringBootApplication注解的类是启动类，是整个系统的启动入口Spring Boot框架会默认扫描启动类所在的包及其所有子包进行解析在其之外的包则不会自动扫描，也不会自动实例化Bean
+解决办法
+因此可以为启动类的注解@SpringBootApplication加一个参数，告知系统需要额外扫描的包
+@SpringBootApplication(scanBasePackages=&#123;&quot;...&quot;, &quot;...&quot;&#125;)
 public class AppApplication &#123;
     public static void main(String[] args) &#123;
         SpringApplication.run(AppApplication.class, args);
     &#125;
 &#125;
-</code></pre>
-<ul>
-<li>参数名是<code>scanBasePackages</code></li>
-<li>参数值是一个字符串数组，用于指定所有需要自动扫描的包</li>
-</ul>
-<p><strong>另一种写法</strong></p>
-<p>如果不是<code>Spring Boot</code>启动类，可以使用独立的注解<code>@ComponentScan</code>，作用也是用于指定多个需要额外自动扫描的包。</p>
-<pre><code>@ComponentScan(&#123;&quot;...&quot;, &quot;...&quot;&#125;)
-public class SpringConfiguration &#123;
-    ... ...
-&#125;
-</code></pre>
-<p><strong>额外知识点</strong></p>
-<p>使用<code>@RestController</code>的类，所有方法都不会渲染<code>Thymeleaf</code>页面，而是都返回数据。等同于使用<code>@Controller</code>的类的方法上添加<code>@ResponseBody</code>注解，效果是一样的。但两个注解的包不同</p>
-<pre><code>org.springframework.stereotype.Controller;
-org.springframework.web.bind.annotation.RestController;
-</code></pre>
-<h2 id="Spring-Boot-Logger-运用"><a href="#Spring-Boot-Logger-运用" class="headerlink" title="Spring Boot Logger 运用"></a>Spring Boot Logger 运用</h2><p>在<code>Spring</code>这种比较复杂的系统中，<code>System.out.println()</code>打印的内容会输出到什么地方是不确定的。所以在企业级的项目中，都用日至系统来记录信息</p>
-<p>日志系统的两大优势：</p>
-<ol>
-<li>可以轻松控制日志是否输出</li>
-<li>可以灵活地配置日志的细节，例如输出格式等</li>
-</ol>
-<h3 id="1-配置"><a href="#1-配置" class="headerlink" title="1. 配置"></a>1. 配置</h3><p>修改<code>Spring Boot</code>系统的标准配置文件<code>application.properties</code>(在项目的<code>src/main/resources</code>目录下)，增加日志级别配置：</p>
-<pre><code>logging.level.root=info
-</code></pre>
-<p>表示所有日志(<code>root</code>)都为<code>info</code>级别<br>也可以为不同的包定义不同的级别</p>
-<pre><code>logging.level.com.test.app=info
-</code></pre>
-<p>就表示<code>com.test.app</code>包及其子包的所有类都输出<code>info</code>级别的日志</p>
-<p>常见的日志级别有</p>
-<ul>
-<li>ERROR (最高)<blockquote>
-<p>错误信息日志</p>
-</blockquote>
-</li>
-<li>WARN  (高)<blockquote>
-<p>暂时不出错但高风险的警告信息日志</p>
-</blockquote>
-</li>
-<li>INFO  (中)<blockquote>
-<p>一般的提示语、普通数据等不紧要的信息日志</p>
-</blockquote>
-</li>
-<li>DEBUG (低)<blockquote>
-<p>进开发阶段需要关注的调试信息日志</p>
-</blockquote>
-</li>
-</ul>
-<p><strong>级别的作用</strong></p>
-<p><code>logging,level.root=warn</code>意味着不输出更低优先级的INFO、DEBUG日志，只输出WARN和更高优先级的ERROR日志。其余类比<br>在开发阶段配置为<code>DEBUG</code>，在项目发布时调整为<code>INFO</code>或更高级别，即可做到不改代码而控制只输出关心的日志</p>
-<h3 id="2-编码"><a href="#2-编码" class="headerlink" title="2. 编码"></a>2. 编码</h3><p>配置完成后，编码只需要实例化日志对象即可打印日志</p>
-<pre><code>import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.RestController;
-import javax.annotation.PostConstruct;
-
-@RestController
-public class SongListControl &#123;
-    private static final Logger LOG = LoggerFactory.getLogger(SongListControl.class);
-
-    @PostConstruct
-    public void init() &#123;
-        LOG.info(&quot;SongListControl 启动了&quot;);
-    &#125;
-&#125;
-</code></pre>
-<p>先定义一个类变量<code>LOG</code>，然后在<code>LOG.info()</code>方法的参数中输入日志内容<br>注意这里的方法名(<code>info()</code>)与日志级别一一对应</p>
-<p>定义类变量<code>LOG</code>的语句属于固定写法，至于要在不同的类中，修改<code>getLogger()</code>方法参数为当前的类名即可。这样就能识别每段日志的来源。</p>
-<blockquote>
-<p>修饰为<code>static final</code>的目的就是尽量复用，一个类无论多少个实例只需要一个日志对象。日志对象一旦定义也不需要修改</p>
-</blockquote>
-<h2 id="Spring-Boot-Properties"><a href="#Spring-Boot-Properties" class="headerlink" title="Spring Boot Properties"></a>Spring Boot Properties</h2><p><code>Spring Boot</code>框架已经免除了大部分手动配置，但对于一些特定的情况，还是需要进行手动配置。<br>框架提供了<code>application.properties</code>配置文件，让我们可以进行自定义配置。这是一个固定位置(在项目<code>src/main/resources</code>目录下)、固定名字的文件，框架会自动加载并解析这个配置文件</p>
-<h3 id="配置文件格式"><a href="#配置文件格式" class="headerlink" title="配置文件格式"></a>配置文件格式</h3><p>每一行是一条配置项：配置项名称=配置项值</p>
-<blockquote>
-<p>注意：等号两边不要加空格，要写紧凑一些</p>
-</blockquote>
-<p>配置文件书写约定：</p>
-<ul>
-<li>配置项名称能准确表达作用、含义，以<code>.</code>分隔单词</li>
-<li>相同前缀的配置项写在一起</li>
-<li>不同前缀的配置项之间空一行</li>
-</ul>
-<h3 id="配置的意义"><a href="#配置的意义" class="headerlink" title="配置的意义"></a>配置的意义</h3><p>配置的主要作用，是把<strong>可变</strong>的内容从代码中剥离出来，做到在不修改代码的情况下，方便的修改这些可变的或常变的内容。这个过程称之为避免硬编码、做到解耦</p>
-<h3 id="自定义配置项"><a href="#自定义配置项" class="headerlink" title="自定义配置项"></a>自定义配置项</h3><pre><code>song.name=God is a girl
-</code></pre>
-<p>使用：</p>
-<pre><code>import org.springframework.beans.factory.annotation.Value;
-
-public class SongListControl &#123;
-    @Value(&quot;$&#123;song.name&#125;&quot;)
-    private String songName;
-&#125;
-</code></pre>
-<p>注意写法，花括号中的配置项名称，与配置文件中保持一致</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
+参数名是scanBasePackages
+参数值是一个字符串数组，用于指定所有需要自动扫描的包
+
+另一种写法
+如果不是Spri ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/03/03/Spring-Template/" title="Spring Template">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring Template"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/03/Spring-Template/" title="Spring Template">Spring Template</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-03T07:02:16.000Z" title="发表于 2021-03-03 15:02:16">2021-03-03</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Spring-Learning-Notes/">Spring Learning Notes</a></span></div><div class="content">Thymeleaf入门Thymeleaf是一个模板框架，可以支持多种格式的内容动态渲染
+通过模板引擎，可以把Java对象数据+模板页面动态的渲染出一个真实的HTML页面来
+如何初始化Thymeleaf
+添加Maven依赖
+ 
+     org.springframework.boot
+     spring-boot-starter-thymeleaf
+ 
+数据传递只需在方法参数里引入一个Model对象，就可以通过这个Model对象传递数据到页面中了
+ import org.springframework.ui.Model;
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/03/Spring-Template/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="FiveMountain">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FivMntBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/03/Spring-Template/" class="post-title-link" itemprop="url">Spring Template</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-03-03 15:02:16" itemprop="dateCreated datePublished" datetime="2021-03-03T15:02:16+08:00">2021-03-03</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-03-08 08:50:08" itemprop="dateModified" datetime="2021-03-08T08:50:08+08:00">2021-03-08</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Spring-Learning-Notes/" itemprop="url" rel="index"><span itemprop="name">Spring Learning Notes</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Thymeleaf入门"><a href="#Thymeleaf入门" class="headerlink" title="Thymeleaf入门"></a>Thymeleaf入门</h2><p>Thymeleaf是一个模板框架，可以支持多种格式的内容动态渲染</p>
-<p>通过模板引擎，可以把<strong>Java对象数据+模板页面</strong>动态的渲染出一个真实的HTML页面来</p>
-<h3 id="如何初始化Thymeleaf"><a href="#如何初始化Thymeleaf" class="headerlink" title="如何初始化Thymeleaf"></a>如何初始化Thymeleaf</h3><ol>
-<li><p><strong>添加Maven依赖</strong></p>
- <dependency>
-     <groupId>org.springframework.boot</groupId>
-     <artifactId>spring-boot-starter-thymeleaf</artifactId>
- </dependency></li>
-<li><p><strong>数据传递</strong><br>只需在方法参数里引入一个<code>Model</code>对象，就可以通过这个Model对象传递数据到页面中了</p>
-<p> import org.springframework.ui.Model;</p>
-</li>
-</ol>
-<pre><code>@Controller
+@Controller
 public class SongListControl &#123;
     @Autowired
     private SongListService songListService;
 
     @RequestMapping(&quot;/songlist&quot;)
-    public String index(@RequestParam(&quot;id&quot;)String id,Model model)&#123;
-        SongList songList = songListService.get(id);
-        // 传递歌单对象到模板当中
-        // 第一个 songList 是模板中使用的变量名
-        // 第二个 songList 是当前的对象实例
-        model.addAttribute(&quot;songList&quot;,songList);
+    public String index(@RequestParam(&quot;id&quot;)String id,Model model)&#123 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/03/03/Spring-MVC/" title="Spring MVC">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring MVC"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/03/Spring-MVC/" title="Spring MVC">Spring MVC</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-02T22:45:53.000Z" title="发表于 2021-03-03 06:45:53">2021-03-03</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Spring-Learning-Notes/">Spring Learning Notes</a></span></div><div class="content">Spring Boot 介绍Spring Boot的核心还是Spring(所以无需单独去管理Spring的Maven依赖)，只是多了一些工程化的方案：
 
-        return &quot;songList&quot;;
-    &#125;
-&#125;
-</code></pre>
-<ol start="3">
-<li><strong>模板文件</strong><br>Spring MVC中对模板文件有固定的存放位置<code>src/main/resources/templates</code><br>所以上面的<code>return &quot;songList&quot;</code>其实会去查找<code>src/main/resources/templates/songList.html</code>文件</li>
-</ol>
-<p>模板文件内容如下</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-    &lt;head&gt;
-        &lt;meta charset=&quot;UTF-8&quot; /&gt;
-        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
-        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt;
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/songList.css&quot; /&gt;
-        &lt;title&gt;豆瓣歌单&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;h1 th:text=&quot;$&#123;songList.name&#125;&quot;&gt;&lt;/h1&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<h2 id="Thymeleaf变量"><a href="#Thymeleaf变量" class="headerlink" title="Thymeleaf变量"></a>Thymeleaf变量</h2><p>上面用到的<code>th:text=&quot;$&#123;songList.name&#125;&quot;</code>就是使用变量技术</p>
-<p>为了不破坏HTML结构，Thymeleaf采用自定义HTML属性的方式来生成动态内容</p>
-<p><code>th:text</code>这个属性就是Thymeleaf自定义的HTML标签属性，<code>th</code>是Thymeleaf的缩写<br><code>th:text</code>语法的作用就是会动态替换掉HTML标签的内部内容</p>
-<p>一般情况下，模板的变量都是会存放在模板上下文中，所以想要调用变量，就需要先设置变量到模板上下文中去</p>
-<pre><code>model.addAttribute(&quot;songList&quot;, songList);
-</code></pre>
-<p><strong>对象变量</strong></p>
-<p>模板语言还可以支持复杂对象的输出，可以使用<code>.</code>把属性调用出来</p>
-<pre><code>&lt;span th:text=&quot;$&#123;song.id&#125;&quot;&gt;&lt;/span&gt;
-</code></pre>
-<blockquote>
-<p>如果对象包含对象，可以用<code>.</code>一直调出来，前提是这个对象是POJO类</p>
-</blockquote>
-<h2 id="Thymeleaf循环语句"><a href="#Thymeleaf循环语句" class="headerlink" title="Thymeleaf循环语句"></a>Thymeleaf循环语句</h2><pre><code>&lt;ul th:each=&quot;song : $&#123;songs&#125;&quot;&gt;
-    &lt;li th:text=&quot;$&#123;song.name&#125;&quot;&gt;歌曲名称&lt;/li&gt;
-&lt;/ul&gt;
-</code></pre>
-<p>Thymeleaf除了支持List数据类型，还可以支持数组、Map(类似Java的for语句，集合类都支持)</p>
-<h3 id="打印列表的索引值"><a href="#打印列表的索引值" class="headerlink" title="打印列表的索引值"></a>打印列表的索引值</h3><pre><code>&lt;ul th:each=&quot;song, it : $&#123;songs&#125;&quot;&gt;
-    &lt;li&gt;
-        &lt;span th:text=&quot;$&#123;it.count&#125;&quot;&gt;&lt;/span&gt;
-        &lt;span th:text=&quot;$&#123;song.name&#125;&quot;&gt;&lt;/span&gt;
-    &lt;/li&gt;
-&lt;/ul&gt;
-</code></pre>
-<p><code>it</code>为可选参数，如果定义了就可以通过这个it对象获取更多关于统计的需求，具体参数如下</p>
-<ul>
-<li><code>it.index</code><blockquote>
-<p>当前迭代对象的index(从0开始计算)，从0开始显示行数</p>
-</blockquote>
-</li>
-<li><code>it.count</code><blockquote>
-<p>当前迭代对象的index(从1开始计算)，显示行数</p>
-</blockquote>
-</li>
-<li><code>it.size</code><blockquote>
-<p>被迭代对象的大小，获取列表长度</p>
-</blockquote>
-</li>
-<li><code>it.current</code><blockquote>
-<p>当前迭代变量，等同于<code>song</code></p>
-</blockquote>
-</li>
-<li><code>it.even/odd</code><blockquote>
-<p>布尔值，当前循环是否是偶数/奇数(从0开始计算)</p>
-</blockquote>
-</li>
-<li><code>it.first</code><blockquote>
-<p>布尔值，当前循环是否是第一个</p>
-</blockquote>
-</li>
-<li><code>it.last</code><blockquote>
-<p>布尔值，当前循环是否是最后一个</p>
-</blockquote>
-</li>
-</ul>
-<p>模板中的布尔值需要结合条件语句来处理</p>
-<h2 id="Thymeleaf表达式"><a href="#Thymeleaf表达式" class="headerlink" title="Thymeleaf表达式"></a>Thymeleaf表达式</h2><p>主要用于两种场景</p>
-<ul>
-<li>字符串处理</li>
-<li>数据转化</li>
-</ul>
-<h3 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h3><pre><code>// 字符串拼接
-&lt;span th:text=&quot;$&#123;&#39;00:00/&#39; + $&#123;totalTime&#125;&#125;&quot;&gt;&lt;/span&gt;
+如Java Web容器的嵌入集成，Spring Boot默认集成了Tomcat
+Spring Boot还自定义了工程打包格式，通过这个直接把一个Java Web工程转化成普通的Java工程，启动一个main方法就可以把Spring工程启动起来
+Spring Boot默认集成了常用第三方框架和服务，如数据库连接，NoSQL，安全等
+Spring Boot还提供了标准的属性配置文件，支持应用的参数动态配置
 
-// 拼接优化
-&lt;span th:text=&quot;|00:00/$&#123;totalTime&#125;|&quot;&gt;&lt;/span&gt;
-</code></pre>
-<h3 id="数据转化"><a href="#数据转化" class="headerlink" title="数据转化"></a>数据转化</h3><p>处理<code>LocalDate</code>和<code>LocalDateTime</code>类的依赖</p>
-<pre><code>&lt;dependency&gt;
-    &lt;groupId&gt;org.thymeleaf.extras&lt;/groupId&gt;
-    &lt;artifactId&gt;thymeleaf-extras-java8time&lt;/artifactId&gt;
-    &lt;version&gt;3.0.4.RELEASE&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
-<p>这个库会自动添加一个新的工具类<code>temporals</code></p>
-<p>变量使用的是<code>$&#123;变量名&#125;</code>，工具类使用的是<code>#&#123;工具类&#125;</code></p>
-<p><strong>dates/temporals</strong></p>
-<p>dates和temporals支持的方法是一样的，只是支持的类型不同<br>dates支持的是Date类，temporals支持的是LocalDate和LocalDateTime</p>
-<blockquote>
-<p>java.util.Date类和LocalDateTime类功能是一样的，不同的是LocalDateTime是Java8才出现的，一些老的应用还是用Date类</p>
-</blockquote>
-<p>一般使用dates/temporals用于处理日期类型到字符串的转化，比如显示<code>年月日</code></p>
-<pre><code>&lt;p th:text=&quot;$&#123;#dates.format(dateVar, &#39;yyyy-MM-dd HH:mm:ss&#39;)&#125;&quot;&gt;&lt;/p&gt;
-&lt;p th:text=&quot;$&#123;#dates.format(dateVar, &#39;yyyy年MM月dd日 HH时mm分ss秒&#39;)&#125;&quot;&gt;&lt;/p&gt;
-</code></pre>
-<p>如果日期类型是<code>LocalDate/LocalDateTime</code>就把<code>#dates</code>换成<code>#temporals</code></p>
-<p><strong>strings</strong></p>
-<p>除了日期方法，<code>#strings</code>也是使用较多的，支持字符串的数据处理</p>
-<ul>
-<li><code>$&#123;#strings.toUpperCase(name)&#125;</code><blockquote>
-<p>把字符串改成全大写</p>
-</blockquote>
-</li>
-<li><code>$&#123;#strings.toLowerCase(name)&#125;</code><blockquote>
-<p>把字符串改成全小写</p>
-</blockquote>
-</li>
-<li><code>$&#123;#strings.arrayJoin(array, &#39;,&#39;)&#125;</code><blockquote>
-<p>把数组合并成一个字符串，并以<code>,</code>连接</p>
-</blockquote>
-</li>
-<li><code>$&#123;#strings.arraySplit(str, &#39;,&#39;)&#125;</code><blockquote>
-<p>把字符串分隔成一个数组，并以<code>,</code>作为分隔符</p>
-</blockquote>
-</li>
-<li><code>$&#123;#strings.trim(str)&#125;</code><blockquote>
-<p>去掉字符串左右两边空格</p>
-</blockquote>
-</li>
-<li><code>$&#123;#strings.length(str)&#125;</code><blockquote>
-<p>得到字符串的长度，也支持获取集合类的长度</p>
-</blockquote>
-</li>
-<li><code>$&#123;#strings.equals(str1, str2)&#125;</code><blockquote>
-<p>比较两个字符串是否相等</p>
-</blockquote>
-</li>
-<li><code>$&#123;#strings.equalsIgnoreCase(str1, str2)&#125;</code><blockquote>
-<p>忽略大小写后比较两个字符串是否相等</p>
-</blockquote>
-</li>
-</ul>
-<p><strong>内联表达式</strong></p>
-<pre><code>&lt;span&gt;Hello [[$&#123;msg&#125;]]&lt;/span&gt;
-</code></pre>
-<p>上面的<code>[[变量]]</code>这种格式就是内联表达式，支持直接在HTML中调用变量</p>
-<blockquote>
-<p><code>[[]]</code>是用来替代<code>th:text</code>的，不能替代所有<code>th:</code>标签</p>
-</blockquote>
-<h2 id="Thymeleaf条件语句"><a href="#Thymeleaf条件语句" class="headerlink" title="Thymeleaf条件语句"></a>Thymeleaf条件语句</h2><pre><code>// 条件为true 执行渲染
-&lt;span th:if=&quot;$&#123;user.sex == &#39;male&#39;&#125;&quot;&gt;男&lt;/span&gt;
+创建Spring Boot工程：https://start.spring.io/
+Spring Controller 入门在Spring Boot方案里，一个网页请求到了服务器后，首先进入的是Java Web服务器，然后进入到Spring Boot应用，最后匹配到某一个Spring Controller(也是一个Spring Bean)，然后路由到具体某一个Bean的方法，执行完后返回结果，输出到客户端。从这个流程里可以看出，只要掌握 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/03/02/Spring%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/" title="Spring依赖注入">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring依赖注入"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/02/Spring%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/" title="Spring依赖注入">Spring依赖注入</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-02T08:11:02.000Z" title="发表于 2021-03-02 16:11:02">2021-03-02</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Spring-Learning-Notes/">Spring Learning Notes</a></span></div><div class="content">Java注解(Annotation)本质上来说Annotation(注解)是Java推出的一种注释机制。和普通注释的显著区别就是，Annotation可以在编译、运行阶段读取。因此，可以借助它来实现一些增强功能。
 
-// 条件为false 执行渲染
-&lt;span th:unless=&quot;$&#123;user.sex == &#39;male&#39;&#125;&quot;&gt;女&lt;/span&gt;
-</code></pre>
-<h3 id="strings逻辑判断"><a href="#strings逻辑判断" class="headerlink" title="strings逻辑判断"></a>strings逻辑判断</h3><p><strong>isEmpty</strong></p>
-<p>检查字符串变量是否为空(or null)，在检查之前会先执行trim()操作，去掉空格</p>
-<pre><code>$&#123;#strings.isEmpty(name)&#125;
+Annotation类里可以继续引用其他的Annotation类
 
-$&#123;#strings.arrayIsEmpty(name)&#125;  // 数组
+1、Targetjava.lang.annotation.Target自身也是一个注解，它只有一个数组属性，用预设定该注解的目标范围，如可以作用于类或方法等。由于是数组，所以可以设定多个范围。具体可以作用的类型配置在java.lang.annotation.ElementType枚举类中，常用的有：
 
-$&#123;#strings.listIsEmpty(name)&#125;   // 集合
-</code></pre>
-<p><strong>contains</strong><br>检查字符串变量是否包含片段</p>
-<pre><code>$&#123;strings.contains(name, &#39;abc&#39;)&#125;
-</code></pre>
-<p>其它常用的<code>#strings</code>判断语法</p>
-<ul>
-<li><code>$&#123;#strings.containsIgnoreCase(name, &#39;&#39;abc)&#125;</code><blockquote>
-<p>忽略大小的情况下，判断是否包含指定的字符串</p>
-</blockquote>
-</li>
-<li><code>$&#123;#strings.startsWith(name, &#39;abc&#39;)&#125;</code><blockquote>
-<p>判断字符串是否以abc开头</p>
-</blockquote>
-</li>
-<li><code>$&#123;#strings.endsWith(name, &#39;abc&#39;)&#125;</code><blockquote>
-<p>判断字符串是否以abc结束</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="Spring-Validation"><a href="#Spring-Validation" class="headerlink" title="Spring Validation"></a>Spring Validation</h2><p>处理表单数据的验证</p>
-<h3 id="JSR-380"><a href="#JSR-380" class="headerlink" title="JSR 380"></a>JSR 380</h3><p>JSR是Java Specification Requests的缩写，意思是Java规范提案。指向JCP(Java Community Process)提出新增一个标准化技术规范的正式请求。<br>JSR 380就是Bean Validation 2.0，这个就是Bean验证的规范，这里的Bean就是实例化后的POJO类。<br>JSR 380提案的规范可以通过下面的依赖添加到工程里</p>
-<pre><code>&lt;dependency&gt;
-    &lt;groupId&gt;jakarta.validation&lt;/groupId&gt;
-    &lt;artifactId&gt;jakarta.validation-api&lt;/artifactId&gt;
-    &lt;version&gt;2.0.1&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
-<p>Spring Validation也是JSR 380提案的一个实现方案</p>
-<h3 id="Validation注解"><a href="#Validation注解" class="headerlink" title="Validation注解"></a>Validation注解</h3><p>JSR 380定义了一些注解用于数据校验，这些注解可以直接设置在Bean属性上</p>
-<ul>
-<li><code>@NotNull</code><blockquote>
-<p>不允许为null对象</p>
-</blockquote>
-</li>
-<li><code>@AssertTrue</code><blockquote>
-<p>是否为true</p>
-</blockquote>
-</li>
-<li><code>@Size</code><blockquote>
-<p>约定字符串的长度</p>
-</blockquote>
-</li>
-<li><code>@Min</code><blockquote>
-<p>字符串的最小长度</p>
-</blockquote>
-</li>
-<li><code>@Max</code><blockquote>
-<p>字符串的最大长度</p>
-</blockquote>
-</li>
-<li><code>@Email</code><blockquote>
-<p>是否是邮箱格式</p>
-</blockquote>
-</li>
-<li><code>@NotEmpty</code><blockquote>
-<p> 不允许为null或为空，可用于判断字符串、集合，如Map、数组、List</p>
-</blockquote>
-</li>
-<li><code>@NotBlank</code><blockquote>
-<p>不允许为null和空格</p>
-</blockquote>
-</li>
-</ul>
-<pre><code>import javax.validation.constraints.*;
+ElementType.TYPE
+可以作用于类、接口类、枚举类上
 
-public class User &#123;
-    @NotEmpty(message = &quot;名称不能为null&quot;)
-    private String name;
 
-    @Min(message = &quot;年龄必须大于等于18岁&quot;)
-    @Max(message = &quot;年龄必须小于等于120岁&quot;)
-    private int age;
+ElementType.FIELD
+可以作用于类的属性上
 
-    @NotEmpty(message = &quot;邮箱必须输入&quot;)
-    @Email(message = &quot;邮箱不正确&quot;)
-    private String email;
 
-    // standard setters and getters
-&#125;
-</code></pre>
-<blockquote>
-<p>大多数情况下，建议使用NotEmpty替代NotNull、NotBlank</p>
-</blockquote>
-<p>校验的注解是可以累加的，系统会按顺序执行校验</p>
-<h3 id="执行校验"><a href="#执行校验" class="headerlink" title="执行校验"></a>执行校验</h3><pre><code>@Controller
-public class UserControl &#123;
-    @GetMapping(&quot;/user/add.html&quot;)
-    public String addUser() &#123;
-        return &quot;user/addUser&quot;;
-    &#125;
+ElementType.METHOD
+可以作用于类的方法上
 
-    @PostMapping(&quot;/user/save&quot;)
-    public String saveUser(@Valid User user, BindingResult errors) &#123;
-        if(errors.hasErrors()) &#123;
-            // 校验不通过，返回用户编辑界面
-            return &quot;user/addUser&quot;;
-        &#125;
 
-        // 校验通过
-        return &quot;user/addUserSuccess&quot;;
-    &#125;
-&#125;
-</code></pre>
-<blockquote>
-<p>@Valid 完整包路径<code>javax.validation.Valid;</code><br>BindingResult 类的路径是<code>org.springframework.validation.BindingResult</code></p>
-</blockquote>
-<blockquote>
-<p>当数据存储成功后，跳转至某页面，这个逻辑一般借助页面跳转<code>redirect</code>实现</p>
-</blockquote>
-<pre><code>return &quot;redirect:/user/list&quot;;
-</code></pre>
-<p><strong>th:object</strong></p>
-<p>为了让表单验证状态生效，需要在<code>form</code>标签里增加一个<code>th:object=&quot;$&#123;user&#125;&quot;</code>属性</p>
-<blockquote>
-<p><code>th:object</code>用于替换对象，使用了这个就不需要每次都编写<code>user.xxx</code>，可以直接操作<code>xxx</code>了</p>
-</blockquote>
-<p><strong>th:classappend</strong></p>
-<p>现在需要动态的管理表单的样式。如果有错误就在该标签上增加表示错误的<code>css class</code>，否则不处理</p>
-<pre><code>&lt;div th:classappend=&quot;$&#123;#fields.hasErrors(&#39;name&#39;)&#125; ? &#39;error&#39; : &#39;&#39;&quot;&gt;
-&lt;/div&gt;
-</code></pre>
-<p>如果错误信息里有name字段，上面的代码就会生成</p>
-<pre><code>&lt;div class=&quot;error&quot;&gt;
-&lt;/div&gt;
-</code></pre>
-<p>注意<code>$&#123;#fields.hasErrors(&#39;key&#39;)&#125;</code>这个语法是专门为验证场景提供的，这里的<code>key</code>就是对象的属性名称，比如User对象的name、age等</p>
-<p><strong>th:errors</strong></p>
-<p>如果还想要显示出错误信息，可以使用<code>th:errors=&quot;*&#123;age&#125;&quot;</code>属性，这个会自动取出错误信息</p>
-<pre><code>&lt;p th:if=&quot;$&#123;#fields.hasErrors(&#39;age&#39;)&#125;&quot; th:errors=&quot;*&#123;age&#125;&quot;&gt;&lt;/p&gt;
-</code></pre>
-<blockquote>
-<p>注意这里的<code>*</code>由于在form中使用了<code>th:object=&quot;$&#123;user&#125;&quot;</code>，所以就可以通过<code>*&#123;age&#125;</code>来获取具体的属性值</p>
-</blockquote>
-<p><strong>th:field</strong></p>
-<p>一般错误的时候，希望能显示上一次输入的内容，此时可以使用th:field语法</p>
-<pre><code>&lt;div th:classappend=&quot;$&#123;#fields.hasErrors(&#39;age&#39;)&#125; ? &#39;error&#39; : &#39;&#39;&quot;&gt;
-    &lt;label&gt;年龄：&lt;/label&gt;
-    &lt;input type=&quot;text&quot; th:field=&quot;*&#123;age&#125;&quot; /&gt;
-    &lt;p th:if=&quot;$&#123;#fields.hasErrors(&#39;age&#39;)&#125;&quot; th:errors=&quot;&#123;age&#125;&quot;&gt;&lt;/p&gt;
-&lt;/div&gt;
-</code></pre>
-<h2 id="Thymeleaf布局-Layout"><a href="#Thymeleaf布局-Layout" class="headerlink" title="Thymeleaf布局(Layout)"></a>Thymeleaf布局(Layout)</h2><p>这里布局指网站的页面架构。layout解决的是模板复用的问题</p>
-<p>推荐使用<code>th:include + th:replace</code>方案完成布局的开发</p>
-<h3 id="layout-html"><a href="#layout-html" class="headerlink" title="layout.html"></a>layout.html</h3><pre><code>&lt;!DOCTYPE html&gt;
-&lt;html xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
-    &lt;head&gt;
-        &lt;meta charset=&quot;UTF-8&quot;&gt;
-        &lt;meta name=&quot;viewpoint&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
-        &lt;title&gt;布局&lt;/title&gt;
-        &lt;style&gt;
-            .header &#123;background-color: #f5f5f5; padding: 20px;&#125;
-            .header a &#123;padding: 0 20px;&#125;
-            .container &#123;padding: 20px; margin: 20px auto;&#125;
-            .footer &#123;height: 40px; background-color: #f5f5f5; border-top:1px solid #ddd; padding: 20px;&#125;
-        &lt;/style&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;header class=&quot;header&quot;&gt;
-            &lt;div&gt;
-                &lt;a href=&quot;/book/list.html&quot;&gt;图书管理&lt;/a&gt;
-                &lt;a href=&quot;/user/list.html&quot;&gt;用户管理&lt;/a&gt;
-            &lt;/div&gt;
-        &lt;/header&gt;
-        &lt;div class=&quot;container&quot; th:include=&quot;::content&quot;&gt;页面正文内容&lt;/div&gt;
-        &lt;footer&gt;
-            &lt;div&gt;
-                &lt;p style=&quot;float: left&quot;&gt;&amp;copy; youkeda.com 2017&lt;/p&gt;
-                &lt;p style=&quot;float: right&quot;&gt;Powered by 优课达&lt;/p&gt;
-            &lt;/div&gt;
-        &lt;/footer&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<p>重点在container节点上，使用了<code>th:include=&quot;::content&quot;</code>语法</p>
-<p><strong>th:include=”::content”</strong></p>
-<p><code>::content</code>指的是选择器，这个选择器指的就是加载当前页面的<code>th:fragment</code>的值<br>当页面渲染的时候，布局会合并content这个fragment内容一起渲染，下面配置fragment</p>
-<h3 id="user-list-html"><a href="#user-list-html" class="headerlink" title="user/list.html"></a>user/list.html</h3><pre><code>&lt;!DOCTYPE html&gt;
-&lt;html xmlns:th=&quot;http://www.thymeleaf.org&quot; th:replace=&quot;layout&quot;&gt;
-    &lt;div th:fragment=&quot;content&quot;&gt;
-        &lt;h2&gt;用户列表&lt;/h2&gt;
-        &lt;div&gt;
-            &lt;a href=&quot;/user/add.html&quot;&gt;添加用户&lt;/a&gt;
-        &lt;/div&gt;
-        &lt;table&gt;
-            &lt;thead&gt;
-                &lt;tr&gt;
-                    &lt;th&gt;
-                        用户名称
-                    &lt;/th&gt;
-                    &lt;th&gt;
-                        用户年龄
-                    &lt;/th&gt;
-                    &lt;th&gt;
-                        用户邮箱
-                    &lt;/th&gt;
-                &lt;/tr&gt;
-            &lt;/thead&gt;
-            &lt;tbody&gt;
-                &lt;tr th:each=&quot;user : $&#123;users&#125;&quot;&gt;
-                    &lt;td th:text=&quot;$&#123;user.name&#125;&quot;&gt;&lt;/td&gt;
-                    &lt;td th:text=&quot;$&#123;user.age&#125;&quot;&gt;&lt;/td&gt;
-                    &lt;td th:text=&quot;$&#123;user.email&#125;&quot;&gt;&lt;/td&gt;
-                &lt;/tr&gt;
-            &lt;/tbody&gt;
-        &lt;/table&gt;
-    &lt;/div&gt;
-&lt;/html&gt;
-</code></pre>
-<p><strong>th:replace=”layout”</strong></p>
-<p>指定了布局的名称，这个一旦声明后，页面会被替换成layout的内容。注意不要指定布局名称错误，这里<code>&quot;layout&quot;</code>指的是<code>templates/layout.html</code></p>
-<p><strong>th:fragment=”content”</strong></p>
-<p>fragment是片段的意思，当页面渲染的时候，可以通过选择器指定使用这个片段。在<code>layout.html</code>文件的<code>th:include=&quot;::content&quot;</code>指定的就是这个值</p>
-<p>执行JS操作<br>    <a href="javascript:;" th:onclick="delBook([[${book.id}]])">删除</a></p>
-<p>其中，Thymeleaf对HTML属性的动态赋值的操作方法<br>    th:onclick=”delBook([[${book.id}]])”</p>
-<blockquote>
-<p>由于超链接有默认的打开链接行为，所以对于想要执行onclick的时候，一般设置<code>href=&quot;javascript:;&quot;</code></p>
-</blockquote>
+ElementType.PARAMETER
+可以作用于类的参数
 
-      
-    </div>
 
-    
-    
-    
 
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
+如果想同时作用于类和方法上，可以
+@Target(&#123;ElementType.TYPE, ElementType.METHOD&#125; ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/03/02/Spring%E5%85%A5%E9%97%A8/" title="Spring入门">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring入门"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/02/Spring%E5%85%A5%E9%97%A8/" title="Spring入门">Spring入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-02T00:51:57.000Z" title="发表于 2021-03-02 08:51:57">2021-03-02</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Spring-Learning-Notes/">Spring Learning Notes</a></span></div><div class="content">Maven入门Maven命令
+命令要在工程的根目录下执行
 
 
+mvn clean compile
 
+编译命令，Maven会自动扫描src/main/java下的代码并完成编译工作，执行完，会在根目录下生成target/classes目录（存放所有的class）。
 
-    
+mvn clean package
 
+compile和package的集合，会限制性compile命令，然后执行jar打包命令。
 
-<div class="post-block">
-  
-  
+mvn clean install
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/03/Spring-MVC/">
+compile、package和install的集合，执行compile、jar打包命令后，执行install命令安装到本地Maven仓库中，目录是$&#123;user_home&#125;/.m2
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="FiveMountain">
-      <meta itemprop="description" content="">
-    </span>
+mvn compile exec:java -Dexec.mainClass=$&#123;main&#125;
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FivMntBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/03/Spring-MVC/" class="post-title-link" itemprop="url">Spring MVC</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-03-03 06:45:53" itemprop="dateCreated datePublished" datetime="2021-03-03T06:45:53+08:00">2021-03-03</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-03-08 08:49:25" itemprop="dateModified" datetime="2021-03-08T08:49:25+08:00">2021-03-08</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Spring-Learning-Notes/" itemprop="url" rel="index"><span itemprop="name">Spring Learning Notes</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Spring-Boot-介绍"><a href="#Spring-Boot-介绍" class="headerlink" title="Spring Boot 介绍"></a>Spring Boot 介绍</h2><p>Spring Boot的核心还是Spring(所以无需单独去管理Spring的Maven依赖)，只是多了一些工程化的方案：</p>
-<ul>
-<li>如Java Web容器的嵌入集成，Spring Boot默认集成了Tomcat</li>
-<li>Spring Boot还自定义了工程打包格式，通过这个直接把一个Java Web工程转化成普通的Java工程，启动一个main方法就可以把Spring工程启动起来</li>
-<li>Spring Boot默认集成了常用第三方框架和服务，如数据库连接，NoSQL，安全等</li>
-<li>Spring Boot还提供了标准的属性配置文件，支持应用的参数动态配置</li>
-</ul>
-<p>创建Spring Boot工程：<a target="_blank" rel="noopener" href="https://start.spring.io/">https://start.spring.io/</a></p>
-<h2 id="Spring-Controller-入门"><a href="#Spring-Controller-入门" class="headerlink" title="Spring Controller 入门"></a>Spring Controller 入门</h2><p>在Spring Boot方案里，一个网页请求到了服务器后，首先进入的是Java Web服务器，然后进入到Spring Boot应用，最后匹配到某一个Spring Controller(也是一个Spring Bean)，然后路由到具体某一个Bean的方法，执行完后返回结果，输出到客户端。<br>从这个流程里可以看出，只要掌握Spring Controller就可以自己提供Web服务了</p>
-<p>Spring Controller技术有三个核心点：</p>
-<ul>
-<li>Bean的配置：Controller注解运用</li>
-<li>网络资源的加载：加载网页</li>
-<li>网址路由的配置：RequestMapping注解运用</li>
-</ul>
-<h3 id="1-Controller注解"><a href="#1-Controller注解" class="headerlink" title="1. Controller注解"></a>1. Controller注解</h3><p>Spring Controller本身也是一个Spring Bean，只是它多提供了Web能力。<br>只需要在类上提供一个<code>@Controller</code>注解就可以了</p>
-<blockquote>
-<p>Spring大多数是基于接口开发的，但是没有接口也是可以工作的。Spring Controller一般情况下不需要特意实现接口</p>
-</blockquote>
-<h3 id="2-加载网页"><a href="#2-加载网页" class="headerlink" title="2. 加载网页"></a>2. 加载网页</h3><p>在Spring Boot应用中，一般把网页存放在<code>src/main/resources/static</code>目录下。<br>在Controller中，会<strong>自动加载static下</strong>的HTML内容，所以通过Spring Boot建设网站也非常简单</p>
-<pre><code>import org.springframework.stereotype.Controller;
-
-@Controller
-public class HelloControl &#123;
-    public String say() &#123;
-        return &quot;hello.html&quot;;
-    &#125;
-&#125;
-</code></pre>
-<p>在上面代码中，say()方法返回类型为<code>String</code><br><code>return &quot;hello.html&quot;;</code>返回的是HTML文件路径</p>
-<blockquote>
-<p>执行这段代码的时候，Spring Boot实际加载的是<code>src/main/resources/static/hello.html</code>文件</p>
-<p>文件路径不需要额外添加<code>static</code></p>
-</blockquote>
-<p><strong>static子目录</strong></p>
-<p>如果HTML文件路径为<code>src/.../static/html/hello.html</code>，那么return语句应为</p>
-<pre><code>return &quot;html/hello.html&quot;;
-</code></pre>
-<h3 id="3-RequestMapping注解"><a href="#3-RequestMapping注解" class="headerlink" title="3. RequestMapping注解"></a>3. RequestMapping注解</h3><p><strong>路由</strong>：对于Web服务器来说，必须要实现的一个能力就是解析URL，并提供资源内容给调用者。这个过程一般称为路由</p>
-<p>Spring MVC完美支持了路由能力，并简化了路由配置，只需要在需要提供Web访问的方法上添加一个<code>@RequestMapping</code>注解即可</p>
-<pre><code>import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-@Controller
-public class HelloControl &#123;
-    @RequestMapping(&quot;/hello&quot;)
-    public String say() &#123;
-        return &quot;html/hello.html&quot;;
-    &#125;
-&#125;
-</code></pre>
-<p>一般情况下，会把controller类存放在<code>control</code>子包里</p>
-<h2 id="Get-Request"><a href="#Get-Request" class="headerlink" title="Get Request"></a>Get Request</h2><p>每个HTTP URL都可以设定自定义的参数，e.g.<code>https://www.baidu.com/s?wd=test</code>中的<code>wd</code><br>参数要求能索引到唯一一个结果</p>
-<h3 id="定义参数"><a href="#定义参数" class="headerlink" title="定义参数"></a>定义参数</h3><p>在Spring MVC中，定义一个URL参数只需在方法上添加对应的参数和参数注解即可</p>
-<pre><code>@Controller
-public class SongListControl &#123;
-    @RequestMapping(&quot;/songList&quot;)
-    public String index(@RequestParam(&quot;id&quot;) String id) &#123;
-        return &quot;html/songList.html&quot;;
-    &#125;
-&#125;
-</code></pre>
-<p>代码在之前的基础上添加了<code>@RequestParam(&quot;id&quot;)</code><br>注解的参数<code>&quot;id&quot;</code>这个值必须和URL的param key一致</p>
-<blockquote>
-<p><code>RequestParam</code>注解的包路径是<code>org.springframework.web.bind.annotation.RequestParam</code></p>
-</blockquote>
-<blockquote>
-<p>默认情况下，URL的参数传递到服务器端都是变成字符串的</p>
-</blockquote>
-<h3 id="获取多个参数"><a href="#获取多个参数" class="headerlink" title="获取多个参数"></a>获取多个参数</h3><p>添加多个参数即可</p>
-<pre><code>@RequestMapping(&quot;songList&quot;)
-public String index(@RequestParam(&quot;id&quot;) String id, @RequestParam(&quot;pageNum&quot;) int pageNum) &#123;
-    ...
-&#125;
-</code></pre>
-<blockquote>
-<p>基础的boolean、int、String数据类型可以直接自动转化</p>
-</blockquote>
-<p>如果在Request方法声明了多个参数，那么URL访问的时候就必须要传递该参数，否则访问不到</p>
-<h3 id="GetMapping"><a href="#GetMapping" class="headerlink" title="@GetMapping"></a>@GetMapping</h3><p><code>@RequestMapping</code>注解默认支持所有的HTTP Method。放开所有的Http Method不是很安全，一般还是会明确指定method，如get请求<br>可以使用<code>@GetMapping</code>替换<code>@RequestMapping</code></p>
-<h3 id="非必须传递参数"><a href="#非必须传递参数" class="headerlink" title="非必须传递参数"></a>非必须传递参数</h3><p>如果访问URL时不想某个参数必须传递，可以修改一下参数的注解</p>
-<pre><code>(@RequestParam(name=&quot;pageNum&quot;,required=false) int pageNum, @RequestParam(&quot;id&quot;) String id)
-</code></pre>
-<blockquote>
-<p>方法定义参数的顺序和URL的参数顺序无关</p>
-</blockquote>
-<h3 id="输出JSON数据"><a href="#输出JSON数据" class="headerlink" title="输出JSON数据"></a>输出JSON数据</h3><pre><code>@GetMapping(&quot;/api/foos&quot;)
-@ResponseBody
-public String getFoos(@RequestParam(&quot;id&quot;) String id) &#123;
-    return &quot;ID: &quot; + id;
-&#125;
-</code></pre>
-<p>返回Java对象的方式</p>
-<pre><code>public class User&#123;
-    private String id;
-    private Stirng name;
-    // 省略了 getter、setter
-&#125;
-
-public class UserControl&#123;
-    //缓存 User 数据
-    private static Map&lt;String,User&gt; users = new HashMap();
-
-    /**
-     * 初始化数据
-     */
-    @PostConstruct
-    public void init()&#123;
-        User user = new User();
-        user.setId(&quot;100&quot;);
-        user.setName(&quot;ykd&quot;);
-        users.put(user.getId(),user);
-    &#125;
-
-    @GetMapping(&quot;/api/user&quot;)
-    @ResponseBody
-    public User getUser(@RequestParam(&quot;id&quot;) String id) &#123;
-        return users.get(id);
-    &#125;
-&#125;
-</code></pre>
-<p>Spring MVC会自动把对象转化成JSON字符串输出到网页<br>一般把这种输出JSON数据的方法称为API</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/02/Spring%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="FiveMountain">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FivMntBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/02/Spring%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">Spring依赖注入</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-03-02 16:11:02" itemprop="dateCreated datePublished" datetime="2021-03-02T16:11:02+08:00">2021-03-02</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-03-08 08:54:20" itemprop="dateModified" datetime="2021-03-08T08:54:20+08:00">2021-03-08</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Spring-Learning-Notes/" itemprop="url" rel="index"><span itemprop="name">Spring Learning Notes</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Java注解-Annotation"><a href="#Java注解-Annotation" class="headerlink" title="Java注解(Annotation)"></a>Java注解(Annotation)</h2><p>本质上来说Annotation(注解)是Java推出的一种注释机制。和普通注释的显著区别就是，Annotation可以在编译、运行阶段读取。因此，可以借助它来实现一些增强功能。</p>
-<blockquote>
-<p>Annotation类里可以继续引用其他的Annotation类</p>
-</blockquote>
-<h3 id="1、Target"><a href="#1、Target" class="headerlink" title="1、Target"></a>1、Target</h3><p><code>java.lang.annotation.Target</code>自身也是一个注解，它只有一个数组属性，用预设定该注解的目标范围，如可以作用于类或方法等。由于是数组，所以可以设定多个范围。<br>具体可以作用的类型配置在<code>java.lang.annotation.ElementType</code>枚举类中，常用的有：</p>
-<ul>
-<li>ElementType.TYPE<blockquote>
-<p>可以作用于类、接口类、枚举类上</p>
-</blockquote>
-</li>
-<li>ElementType.FIELD<blockquote>
-<p>可以作用于类的属性上</p>
-</blockquote>
-</li>
-<li>ElementType.METHOD<blockquote>
-<p>可以作用于类的方法上</p>
-</blockquote>
-</li>
-<li>ElementType.PARAMETER<blockquote>
-<p>可以作用于类的参数</p>
-</blockquote>
-</li>
-</ul>
-<p>如果想同时作用于类和方法上，可以</p>
-<pre><code>@Target(&#123;ElementType.TYPE, ElementType.METHOD&#125;)
-</code></pre>
-<h3 id="2、Retention"><a href="#2、Retention" class="headerlink" title="2、Retention"></a>2、Retention</h3><p><code>java.lang.annotation.Retention</code>自身也是一个注解，它用于声明该注解的生命周期，简单来说就是在Java编译、运行的哪个环节有效。它的值定义在<code>java.lang.annotation.RetentionPolicy</code>枚举类中，有三个值可选</p>
-<ol>
-<li>SOURCE： 纯注释</li>
-<li>CLASS：  在编译阶段有效</li>
-<li>RUNTIME：在运行阶段有效 </li>
-</ol>
-<pre><code>@Retention(RetentionPolicy.RUNTIME)
-</code></pre>
-<p>表示在运行时有效</p>
-<blockquote>
-<p>自定义的Annotation，一般都设置成<code>RUNTIME</code> </p>
-</blockquote>
-<h3 id="3、Documented"><a href="#3、Documented" class="headerlink" title="3、Documented"></a>3、Documented</h3><p><code>java.lang.annotation.Documented</code>自身也是一个注解，它的作用是将注解中的元素包含到JavaDoc文档中，一般情况下都会添加这个注解。</p>
-<h3 id="4、-interface"><a href="#4、-interface" class="headerlink" title="4、@interface"></a>4、@interface</h3><p><code>@interface</code>就是声明当前的Java类型是Annotation，固定语法。</p>
-<h3 id="5、Annotation属性"><a href="#5、Annotation属性" class="headerlink" title="5、Annotation属性"></a>5、Annotation属性</h3><pre><code>String value() default &quot;&quot;;
-</code></pre>
-<p>Annotation的属性有点像类的属性一样，它约定了属性的类型（这个类型是基础类型：String、boolean、int、long），和属性名称（默认名称是value，在饮用时可省略），default代表默认值。<br>有了这个属性，就可以正式引用一个Annotation了。例如：</p>
-<pre><code>import org.springframework.stereotype.Service;
-
-    @Service
-    public class Demo &#123;
-
-&#125;
-</code></pre>
-<blockquote>
-<p>Annotation也是Java类，所以一样需要import</p>
-</blockquote>
-<p>上面的<code>@Service</code>也可以写成<code>@Service(value=&quot;Demo&quot;)</code><br>因为value是默认属性名，可缩写，故等价于<code>@Service(&quot;Demo&quot;)</code></p>
-<h2 id="Spring-Bean"><a href="#Spring-Bean" class="headerlink" title="Spring Bean"></a>Spring Bean</h2><p>IoC(Inversion of Control, 控制反转)容器是Spring框架最最核心的组件。</p>
-<blockquote>
-<p>IoC是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度</p>
-</blockquote>
-<p>在Spring框架中，主要通过依赖注入(Dependency Injection, DI)来实现IoC</p>
-<p>在Spring的世界中，所有的Java对象都会通过IoC容器转变为Bean(Spring对象的一种称呼)，构成应用程序主干和由Spring IoC容器管理的对象成为beans。beans和它们之间的依赖关系反映在容器使用的配置元数据中。基本上所有的Bean都是有接口+实现类完成的，用户想要获取Bean的实例直接从IoC容器获取即可，无需关心实现类</p>
-<p>Spring主要有两种配置元数据的方式，一种是基于XML，一种是基于Annotation</p>
-<p><code>org.springframework.context.ApplicationContext</code>接口类定义容器的对外服务，通过这个接口可以从IoC容器中得到Bean对象。在启动Java程序的时候必须先启动IoC容器</p>
-<p>Annotation类型的IoC容器对应的类是</p>
-<pre><code>org.springframework.context.annotation.AnnotationConfigApplicationContext
-</code></pre>
-<p>如果要启动IoC容器，可以运行下面的代码</p>
-<pre><code>ApplicationContext context = new AnnotationConfigApplicationContext(&quot;fm.douban&quot;);
-</code></pre>
-<p>这段代码的含义就是启动IoC容器，并且会自动加载包<code>fm.douban</code>下的Bean(引用了Spring注解的类)</p>
-<p><code>AnnotationConfigApplicationContext</code>类的构造函数有两种</p>
-<ul>
-<li><code>AnnotationConfigApplicationContext(String ... basePackages)</code>根据包名实例化</li>
-<li><code>AnnotationConfigApplicationContext(Class clszz)</code>根据自定义包扫描行为实例化</li>
-</ul>
-<p>Spring官方声明为Spring Bean的注解有以下几种：</p>
-<ul>
-<li><code>org.springframework.stereotype.Component</code><br><code>@Component</code>注解是通用的Bean注解，其余三个都是扩展自Component</li>
-<li><code>org.springframework.stereotype.Service</code><br><code>@Service</code>代表的是Service Bean</li>
-<li><code>org.springframework.stereotype.Controller</code><br><code>@Controller</code>作用于Web Bean</li>
-<li><code>org.springframework.stereotype.Repository</code><br><code>@Repsitory</code>作用于持久化相关Bean</li>
-</ul>
-<p><strong>依赖注入的第一步是完成容器的启动，第二步就是真正的完成依赖注入行为了</strong></p>
-<p>依赖注入使得到其他Bean实例相当简单，只需在属性上添加注解，例如</p>
-<pre><code>@Autowired
-private SongService songService;
-</code></pre>
-<blockquote>
-<p>Autowired完整的类路径是<code>org.springframework.beans.factory.annotation.Autowired</code></p>
-</blockquote>
-<p>当然还有一个前提条件，就是当前的类是Spring Bean(在类前添加合适注解，如<code>@Service</code>)</p>
-<h2 id="Spring-Resource"><a href="#Spring-Resource" class="headerlink" title="Spring Resource"></a>Spring Resource</h2><p><strong>文件处理方案</strong></p>
-<p>当文件在电脑某个位置(e.g.<code>d:\temp\c.txt</code>)，或在工程目录下(e.g.<code>work/c.txt</code>)时，使用File对象就可以读写</p>
-<pre><code>File file = new File(&quot;work/readme.md&quot;);
-</code></pre>
-<p>但当文件在工程的<code>src/main/resources</code>目录下时，由于Maven执行package会把resources目录下的文件一起打包进jar包里，此时显然用File对象是读取不到的。</p>
-<h4 id="classpath"><a href="#classpath" class="headerlink" title="classpath"></a>classpath</h4><p>在Java内部，一般把文件路径称为classpath，classpath指定的文件不能解析成File对象，但是可以解析成InputStream，借助Java IO就可以读取了</p>
-<blockquote>
-<p>借助第三方类库，commons-io</p>
-</blockquote>
-<pre><code>// 读取classpath的内容
-InputStream in = Test.class.getClassLoader().getResourceAsStream(&quot;c.txt&quot;);
-// 使用 commons-io库读取文本
-try&#123;
-    String content = IOUtils.toString(in, &quot;utf-8&quot;);
-    System.out.println(content);
-&#125; catch (IOException e) &#123;
-    // IOUtils.toString有可能会抛出异常
-    e.printStackTrace();
-&#125;
-</code></pre>
-<p>这段代码含义就是从Java运行的类加载器(ClassLoader)实例中查找文件，<code>Test.class</code>指当前的Test.java编译后的class文件。</p>
-<p>在Spring中定义了一个<code>org.springframework.io.Resource</code>类来封装文件，这个类既支持普通的File，也支持classpath文件。<br>并且在Spring中通过<code>org.springframework.core.io.ResourceLoader</code>服务来提供任意文件的读写。</p>
-<pre><code>import fm.douban.service.FileService;
-import org.apache.commons.io.IOUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
-import org.springframework.stereotype.Service;
-
-import java.io.IOException;
-import java.io.InputStream;
-
-@Service
-public class FileServiceImpl implements FileService &#123;
-    @Autowired
-    private ResourceLoader loader;
-
-    @Override
-    public String getContent(String name) &#123;
-        try&#123;
-            InputStream in = loader.getResource(name).getInputStream();
-            return IOUtils.toString(in, &quot;utf-8&quot;);
-        &#125; catch (IOException e) &#123;
-            return null;
-        &#125;
-    &#125;
-&#125;
-</code></pre>
-<p>服务的调用</p>
-<pre><code>FileService fileService = context.getBean(FileService.class);
-String content1 = fileService.getContent(&quot;classpath:data/urls.txt&quot;);
-System.out.println(content1);
-
-String content2 = fileService.getContent(&quot;file:mywork/readme.md&quot;);
-System.out.println(content2);
-
-String content3 = fileService.getContent(&quot;https://www.zhihu.com/question/34786516/answer/822686390&quot;);
-System.out.println(content3);
-</code></pre>
-<p>在Spring Resource中，把本地文件、classpath文件、远程文件都封装成Resource对象来统一加载</p>
-<h2 id="Spring-Bean的生命周期-Lifecycle"><a href="#Spring-Bean的生命周期-Lifecycle" class="headerlink" title="Spring Bean的生命周期(Lifecycle)"></a>Spring Bean的生命周期(Lifecycle)</h2><p>实例化Bean -&gt; 完成依赖注入 -&gt; afterPropertiesSet -&gt; Bean init -&gt; destroy</p>
-<p>大部分时候只需掌握<code>init</code>方法即可。<code>init</code>方法名称可以使任意的，因为<code>init</code>是通过注解来声明的</p>
-<pre><code>@PostConstruct
-public void init() &#123;
-    System.out.println(&quot;服务启动&quot;);
-&#125;
-</code></pre>
-<p>只需在方法上添加<code>@PostConstruct</code>注解，就代表该方法在Spring Bean启动后会自动执行</p>
-<blockquote>
-<p>PostConstruct的完整包路径是<code>javax.annotation.PostConstruct</code></p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/02/Spring%E5%85%A5%E9%97%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="FiveMountain">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FivMntBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/02/Spring%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">Spring入门</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-03-02 08:51:57" itemprop="dateCreated datePublished" datetime="2021-03-02T08:51:57+08:00">2021-03-02</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-03-08 08:51:01" itemprop="dateModified" datetime="2021-03-08T08:51:01+08:00">2021-03-08</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Spring-Learning-Notes/" itemprop="url" rel="index"><span itemprop="name">Spring Learning Notes</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Maven入门"><a href="#Maven入门" class="headerlink" title="Maven入门"></a>Maven入门</h2><h3 id="Maven命令"><a href="#Maven命令" class="headerlink" title="Maven命令"></a>Maven命令</h3><blockquote>
-<p>命令要在工程的根目录下执行</p>
-</blockquote>
-<ol>
-<li><code>mvn clean compile</code></li>
-</ol>
-<p>编译命令，Maven会自动扫描src/main/java下的代码并完成编译工作，执行完，会在根目录下生成target/classes目录（存放所有的class）。</p>
-<ol start="2">
-<li><code>mvn clean package</code></li>
-</ol>
-<p>compile和package的集合，会限制性compile命令，然后执行jar打包命令。</p>
-<ol start="3">
-<li><code>mvn clean install</code></li>
-</ol>
-<p>compile、package和install的集合，执行compile、jar打包命令后，执行install命令安装到本地Maven仓库中，目录是<code>$&#123;user_home&#125;/.m2</code></p>
-<ol start="4">
-<li><code>mvn compile exec:java -Dexec.mainClass=$&#123;main&#125;</code></li>
-</ol>
-<p>在compile执行完后，运行Java的命令。具体执行的Java类由<code>-Dexec.mainClass=$&#123;main&#125;</code>参数指定。</p>
-<h3 id="Maven核心概念"><a href="#Maven核心概念" class="headerlink" title="Maven核心概念"></a>Maven核心概念</h3><p>Maven的配置文件是一个强约定的XML格式文件，文件名一定是<code>pom.xml</code>。</p>
-<h4 id="1、POM-Project-Object-Model"><a href="#1、POM-Project-Object-Model" class="headerlink" title="1、POM(Project Object Model)"></a>1、POM(Project Object Model)</h4><p>一个Java项目所有的配置都放置在POM文件中，大概有如下的行为：</p>
-<ul>
-<li>定义项目的类型、名字</li>
-<li>管理依赖关系</li>
-<li>定制插件 </li>
-</ul>
-<h5 id="1-1-Maven坐标"><a href="#1-1-Maven坐标" class="headerlink" title="1.1 Maven坐标"></a>1.1 Maven坐标</h5><pre><code>&lt;groupId&gt; &lt;/groupId&gt;
-&lt;artifactId&gt; &lt;/artifactId&gt;
-&lt;packaging&gt; &lt;/packaging&gt;
-&lt;version&gt; &lt;/version&gt;
-</code></pre>
-<p><strong>groupId</strong><br>一般由小写的英文字母和字符<code>.</code>组成，如<code>com.fivemount.test</code>。一般来说一个公司会设置自己的groupId，避免和其他公司重合，个人开发者也一样。</p>
-<p><strong>artifactId</strong><br>在一个groupId内，应该是唯一的。从规范上来说只能使用小写字母、<code>.</code>、<code>-</code>、<code>_</code>。</p>
-<p><strong>packaging</strong><br>Maven工程执行完后会把整个工程打包成<code>packaging</code>指定的文件格式，如果没有声明这个标签，默认为<code>jar</code><br>packaging有以下几种格式：</p>
-<ul>
-<li>jar</li>
-<li>war</li>
-<li>ear</li>
-<li>pom </li>
-</ul>
-<p><strong>version</strong><br>基本上遵循了软件工程中对版本号的约定。</p>
-<ul>
-<li><strong>SNAPSHOT</strong><br>快照。代表当前程序还处于不稳定阶段。</li>
-<li><strong>RELEASE</strong><br>代表程序处于稳定版本。 </li>
-</ul>
-<p><strong>版本号的约定：</strong>在软件工程里，一般用三位数字表示版本号：<code>x.x.x</code>。</p>
-<ul>
-<li>第一位代表的是主版本号<blockquote>
-<p>主版本号一般由团队约定</p>
-</blockquote>
-</li>
-<li>第二位代表的是新增功能<blockquote>
-<p>表示在此版本中有几次新增功能的行为</p>
-</blockquote>
-</li>
-<li>第三位代表的是bugfix后的版本 <blockquote>
-<p>bugfix是修复代码缺陷、bug的行为</p>
-</blockquote>
-</li>
-</ul>
-<h5 id="1-2-Maven属性配置"><a href="#1-2-Maven属性配置" class="headerlink" title="1.2 Maven属性配置"></a>1.2 Maven属性配置</h5><p>Maven的属性配置就是用来做参数设置的。</p>
-<pre><code>&lt;properties&gt;
-    &lt;java.version&gt;1.8&lt;/java.version&gt;
-    &lt;maven.compiler.source&gt;$&#123;java.version&#125;&lt;/maven.compiler.source&gt;
-    &lt;project.build.sourceEncoding&gt;UTD-8&lt;/project.build.sourceEncoding&gt;
-    &lt;maven.compiler.target&gt;$&#123;java.version&#125;&lt;/maven.compiler.target&gt;
-&lt;/properties&gt;
-</code></pre>
-<p>首先它的格式是在<code>properties</code>标签内，这是固定的格式。<code>properties</code>内的标签可以自定义，但一般只能是小写字母+<code>.</code><br>一些公共参数：</p>
-<ul>
-<li>java.version<br>代表设置一个参数：<code>java.version</code>，它的值是1.8</li>
-<li>maven.compiler.source<br>指定Maven编译时源代码的JDK版本</li>
-<li>project.build.sourceEncoding<br>指定工程代码源文件的<strong>文件编码格式</strong>，一般情况下，设置为<code>UTF-8</code></li>
-<li>maven.compiler.target<br>这个参数作用是按照这个JDK版本进行编译源代码 </li>
-</ul>
-<h4 id="2、依赖管理-dependencies"><a href="#2、依赖管理-dependencies" class="headerlink" title="2、依赖管理 dependencies"></a>2、依赖管理 dependencies</h4><p>dependency就是用于指定当前工程依赖其它代码库的，Maven会自动管理jar依赖</p>
-<blockquote>
-<p>一旦在pom.xml里声明了dependency信息，会先去本地用户目录下的<code>.m2</code>文件夹内查找对应的文件，如果没有找到就会触发从中央仓库下载行为，下载完存在本地的<code>.m2</code>文件夹内 </p>
-</blockquote>
-<p>我们只需在pom.xml里添加标签即可。首先声明一个父标签dependencies，然后就可以在这个标签内部添加依赖了。例如添加<code>fastjson</code>库的依赖：</p>
-<pre><code>&lt;dependencies&gt;
-    &lt;dependency&gt;
-    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
-    &lt;artifactId&gt;fastjson&lt;/artifactId&gt;
-    &lt;version&gt;1.2.62&lt;/version&gt;
-    &lt;/dependency&gt;
-&lt;/dependencies&gt; 
-</code></pre>
-<p>注意，<strong>一个pom.xml只能存在一个dependencies标签</strong>,可以有多个dependency<br>dependency标签的内容其实就是Maven坐标</p>
-<blockquote>
-<p>一般把别人写的代码库称为<strong>三方库</strong>，自己、团队写的称为<strong>二方库</strong></p>
-</blockquote>
-<h5 id="2-1-中央仓库"><a href="#2-1-中央仓库" class="headerlink" title="2.1 中央仓库"></a>2.1 中央仓库</h5><p>Maven会把所有的jar都存放在中央仓库里，可以通过<a target="_blank" rel="noopener" href="https://search.maven.org/">https://search.maven.org/</a>这个网站来搜索jar。这个网站部署在国外，如果无法访问，可以使用阿里云的镜像服务器<a target="_blank" rel="noopener" href="https://maven.aliyun.com/mvn/search">https://maven.aliyun.com/mvn/search</a></p>
-<h5 id="2-2-间接依赖"><a href="#2-2-间接依赖" class="headerlink" title="2.2 间接依赖"></a>2.2 间接依赖</h5><p>如果一个<code>remote</code>工程依赖了okhttp库，而当前工程<code>locale</code>依赖了<code>remote</code>工程，这时<code>locale</code>工程也会自动依赖okhttp</p>
-<h4 id="3、插件体系-plugins"><a href="#3、插件体系-plugins" class="headerlink" title="3、插件体系 plugins"></a>3、插件体系 plugins</h4><p>插件体系让Maven变得高度可定制，可以无缝的支撑工程化能力。</p>
-<pre><code>&lt;build&gt;
-    &lt;plugins&gt;
-        &lt;plugin&gt;
-            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-            &lt;artifactId&gt;maven-compile-plugin&lt;/artifactId&gt;
-            &lt;version&gt;3.8.1&lt;/version&gt;
-        &lt;/plugin&gt;
-    &lt;/plugins&gt;
-&lt;/build&gt; 
-</code></pre>
-<p>这里声明了一个<code>maven-compile-plugin</code>插件用于执行maven compile的，Maven的插件其实也是存放在中央仓库的坐标，也就是一切都是jar。</p>
-<h3 id="Hello-Spring"><a href="#Hello-Spring" class="headerlink" title="Hello Spring"></a>Hello Spring</h3><p>Spring强调的是<strong>面向接口编程</strong>，所以大多数情况下Spring代码都会有接口和实现类</p>
-<p>Spring当中，可直接调用接口，而无需关心它的实现类、如何实例化实现类，从而达到真正的解耦合<br>这也是Spring最大的价值，完全的屏蔽了实现细节，让使用者可以专注于接口的定义和运用。</p>
-<pre><code>public static void main(String[] args) &#123;
-    ApplicationContext context = new AnnotationConfigApplicationContext(Application.class);
-    MessageService msgService = context.getBean(MessageService.class);
-    System.out.println(msgService.getMessage());
-&#125; 
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      const commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-</div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">FiveMountain</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
-
-    </div>
-  </footer>
-
-  
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
-
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-</body>
-</html>
+在compile执行完后，运行Java的命令。具体执行的Java类由-Dexec.mainClass=$&#123;main&#125;参数指定。
+Maven核心概念Maven的配置文件是一个强约定的XML格式文件，文件名一定是pom.xml。 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">FiveMountain</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/03/07/cookie%E7%9A%84%E9%87%8D%E8%A6%81%E5%B1%9E%E6%80%A7/" title="cookie的重要属性"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="cookie的重要属性"/></a><div class="content"><a class="title" href="/2021/03/07/cookie%E7%9A%84%E9%87%8D%E8%A6%81%E5%B1%9E%E6%80%A7/" title="cookie的重要属性">cookie的重要属性</a><time datetime="2021-03-07T13:26:14.000Z" title="发表于 2021-03-07 21:26:14">2021-03-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/05/Spring-Session/" title="Spring Session"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring Session"/></a><div class="content"><a class="title" href="/2021/03/05/Spring-Session/" title="Spring Session">Spring Session</a><time datetime="2021-03-05T10:20:39.000Z" title="发表于 2021-03-05 18:20:39">2021-03-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/05/Spring-Boot-%E5%85%A5%E9%97%A8/" title="Spring Boot 入门"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring Boot 入门"/></a><div class="content"><a class="title" href="/2021/03/05/Spring-Boot-%E5%85%A5%E9%97%A8/" title="Spring Boot 入门">Spring Boot 入门</a><time datetime="2021-03-05T07:40:29.000Z" title="发表于 2021-03-05 15:40:29">2021-03-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/03/Spring-Template/" title="Spring Template"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring Template"/></a><div class="content"><a class="title" href="/2021/03/03/Spring-Template/" title="Spring Template">Spring Template</a><time datetime="2021-03-03T07:02:16.000Z" title="发表于 2021-03-03 15:02:16">2021-03-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/03/Spring-MVC/" title="Spring MVC"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring MVC"/></a><div class="content"><a class="title" href="/2021/03/03/Spring-MVC/" title="Spring MVC">Spring MVC</a><time datetime="2021-03-02T22:45:53.000Z" title="发表于 2021-03-03 06:45:53">2021-03-03</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Pages/"><span class="card-category-list-name">Pages</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Spring-Learning-Notes/"><span class="card-category-list-name">Spring Learning Notes</span><span class="card-category-list-count">6</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Pages/" style="font-size: 1.1em; color: #999">Pages</a> <a href="/tags/Spring-Learning-Notes/" style="font-size: 1.5em; color: #99a9bf">Spring Learning Notes</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/03/"><span class="card-archive-list-date">三月 2021</span><span class="card-archive-list-count">7</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">7</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-03-08T01:07:36.556Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By FiveMountain</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
