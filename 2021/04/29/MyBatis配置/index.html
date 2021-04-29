@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
 <meta property="article:published_time" content="2021-04-29T06:41:36.000Z">
-<meta property="article:modified_time" content="2021-04-29T07:34:05.968Z">
+<meta property="article:modified_time" content="2021-04-29T12:58:44.518Z">
 <meta property="article:author" content="FiveMountain">
 <meta property="article:tag" content="setting">
 <meta name="twitter:card" content="summary">
@@ -57,7 +57,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2021-04-29 15:34:05'
+  postUpdate: '2021-04-29 20:58:44'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -139,13 +139,17 @@
           document.documentElement.classList.remove('hide-aside')
         }
       }
-    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/header.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">FivMntBlog</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">MyBatis配置</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-04-29T06:41:36.000Z" title="发表于 2021-04-29 14:41:36">2021-04-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-04-29T07:34:05.968Z" title="更新于 2021-04-29 15:34:05">2021-04-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="MyBatis配置"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="resources"><a href="#resources" class="headerlink" title="resources"></a>resources</h2><p>mybatis-config.xml:</p>
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/header.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">FivMntBlog</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">MyBatis配置</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-04-29T06:41:36.000Z" title="发表于 2021-04-29 14:41:36">2021-04-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-04-29T12:58:44.518Z" title="更新于 2021-04-29 20:58:44">2021-04-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="MyBatis配置"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="resources"><a href="#resources" class="headerlink" title="resources"></a>resources</h2><p><strong>mybatis-config.xml:</strong></p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
 &lt;!DOCTYPE configuration
         PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
         &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
 &lt;configuration&gt;
     &lt;properties resource=&quot;db.properties&quot; /&gt;
+    
+    &lt;settings&gt;
+        &lt;setting name=&quot;logImpl&quot; value=&quot;LOG4J&quot; /&gt;
+    &lt;/settings&gt;
 
     &lt;typeAliases&gt;
         &lt;package name=&quot;com.example.model&quot;/&gt;
@@ -168,13 +172,13 @@
     &lt;/mappers&gt;
 &lt;/configuration&gt;
 </code></pre>
-<p>db.properties:</p>
+<p><strong>db.properties:</strong></p>
 <pre><code>driver=com.mysql.cj.jdbc.Driver
 url=jdbc:mysql://localhost:3306/test?userSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=GMT%2B8
 username=root
 password=123456
 </code></pre>
-<p>log4j.properties:</p>
+<p><strong>log4j.properties:</strong></p>
 <pre><code># 将等级为DEBUG的日志信息输出到console和File这两个目的地，console和file的定义在下面的代码
 log4j.rootLogger=DEBUG,console,file
 
@@ -200,7 +204,7 @@ log4j.logger.java.sql.Statement=DEBUG
 log4j.logger.java.sql.ResultSet=DEBUG
 log4j.logger.java.sql.PreparedStatement=DEBUG
 </code></pre>
-<h2 id="utils"><a href="#utils" class="headerlink" title="utils"></a>utils</h2><p>MyBatisUtils</p>
+<h2 id="utils"><a href="#utils" class="headerlink" title="utils"></a>utils</h2><p><strong>MyBatisUtils:</strong></p>
 <pre><code>import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -230,7 +234,7 @@ public class MyBatisUtils &#123;
     &#125;
 &#125;
 </code></pre>
-<h2 id="资源文件过滤"><a href="#资源文件过滤" class="headerlink" title="资源文件过滤"></a>资源文件过滤</h2><p>pom.xml – <build></p>
+<h2 id="资源文件过滤"><a href="#资源文件过滤" class="headerlink" title="资源文件过滤"></a>资源文件过滤</h2><p><strong>pom.xml:</strong></p>
 <pre><code>&lt;build&gt;
     &lt;resources&gt;
         &lt;resource&gt;
