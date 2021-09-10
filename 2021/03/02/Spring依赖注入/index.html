@@ -1,0 +1,304 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Spring依赖注入 | FivMntBlog</title><meta name="keywords" content="Learning Notes,Spring"><meta name="author" content="FiveMountain"><meta name="copyright" content="FiveMountain"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Java注解(Annotation)本质上来说Annotation(注解)是Java推出的一种注释机制。和普通注释的显著区别就是，Annotation可以在编译、运行阶段读取。因此，可以借助它来实现一些增强功能。  Annotation类里可以继续引用其他的Annotation类  1、Targetjava.lang.annotation.Target自身也是一个注解，它只有一个数组属性，用预设定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring依赖注入">
+<meta property="og:url" content="https://fivemountain.github.io/2021/03/02/Spring%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/index.html">
+<meta property="og:site_name" content="FivMntBlog">
+<meta property="og:description" content="Java注解(Annotation)本质上来说Annotation(注解)是Java推出的一种注释机制。和普通注释的显著区别就是，Annotation可以在编译、运行阶段读取。因此，可以借助它来实现一些增强功能。  Annotation类里可以继续引用其他的Annotation类  1、Targetjava.lang.annotation.Target自身也是一个注解，它只有一个数组属性，用预设定">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-03-02T08:11:02.000Z">
+<meta property="article:modified_time" content="2021-09-10T01:33:26.549Z">
+<meta property="article:author" content="FiveMountain">
+<meta property="article:tag" content="Learning Notes">
+<meta property="article:tag" content="Spring">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://fivemountain.github.io/2021/03/02/Spring%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-09-10 09:33:26'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">FivMntBlog</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Spring依赖注入</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-03-02T08:11:02.000Z" title="发表于 2021-03-02 16:11:02">2021-03-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-09-10T01:33:26.549Z" title="更新于 2021-09-10 09:33:26">2021-09-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Spring依赖注入"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Java注解-Annotation"><a href="#Java注解-Annotation" class="headerlink" title="Java注解(Annotation)"></a>Java注解(Annotation)</h2><p>本质上来说Annotation(注解)是Java推出的一种注释机制。和普通注释的显著区别就是，Annotation可以在编译、运行阶段读取。因此，可以借助它来实现一些增强功能。</p>
+<blockquote>
+<p>Annotation类里可以继续引用其他的Annotation类</p>
+</blockquote>
+<h3 id="1、Target"><a href="#1、Target" class="headerlink" title="1、Target"></a>1、Target</h3><p><code>java.lang.annotation.Target</code>自身也是一个注解，它只有一个数组属性，用预设定该注解的目标范围，如可以作用于类或方法等。由于是数组，所以可以设定多个范围。<br>具体可以作用的类型配置在<code>java.lang.annotation.ElementType</code>枚举类中，常用的有：</p>
+<ul>
+<li>ElementType.TYPE<blockquote>
+<p>可以作用于类、接口类、枚举类上</p>
+</blockquote>
+</li>
+<li>ElementType.FIELD<blockquote>
+<p>可以作用于类的属性上</p>
+</blockquote>
+</li>
+<li>ElementType.METHOD<blockquote>
+<p>可以作用于类的方法上</p>
+</blockquote>
+</li>
+<li>ElementType.PARAMETER<blockquote>
+<p>可以作用于类的参数</p>
+</blockquote>
+</li>
+</ul>
+<p>如果想同时作用于类和方法上，可以</p>
+<pre><code>@Target(&#123;ElementType.TYPE, ElementType.METHOD&#125;)
+</code></pre>
+<h3 id="2、Retention"><a href="#2、Retention" class="headerlink" title="2、Retention"></a>2、Retention</h3><p><code>java.lang.annotation.Retention</code>自身也是一个注解，它用于声明该注解的生命周期，简单来说就是在Java编译、运行的哪个环节有效。它的值定义在<code>java.lang.annotation.RetentionPolicy</code>枚举类中，有三个值可选</p>
+<ol>
+<li>SOURCE： 纯注释</li>
+<li>CLASS：  在编译阶段有效</li>
+<li>RUNTIME：在运行阶段有效 </li>
+</ol>
+<pre><code>@Retention(RetentionPolicy.RUNTIME)
+</code></pre>
+<p>表示在运行时有效</p>
+<blockquote>
+<p>自定义的Annotation，一般都设置成<code>RUNTIME</code> </p>
+</blockquote>
+<h3 id="3、Documented"><a href="#3、Documented" class="headerlink" title="3、Documented"></a>3、Documented</h3><p><code>java.lang.annotation.Documented</code>自身也是一个注解，它的作用是将注解中的元素包含到JavaDoc文档中，一般情况下都会添加这个注解。</p>
+<h3 id="4、-interface"><a href="#4、-interface" class="headerlink" title="4、@interface"></a>4、@interface</h3><p><code>@interface</code>就是声明当前的Java类型是Annotation，固定语法。</p>
+<h3 id="5、Annotation属性"><a href="#5、Annotation属性" class="headerlink" title="5、Annotation属性"></a>5、Annotation属性</h3><pre><code>String value() default &quot;&quot;;
+</code></pre>
+<p>Annotation的属性有点像类的属性一样，它约定了属性的类型（这个类型是基础类型：String、boolean、int、long），和属性名称（默认名称是value，在饮用时可省略），default代表默认值。<br>有了这个属性，就可以正式引用一个Annotation了。例如：</p>
+<pre><code>import org.springframework.stereotype.Service;
+
+    @Service
+    public class Demo &#123;
+
+&#125;
+</code></pre>
+<blockquote>
+<p>Annotation也是Java类，所以一样需要import</p>
+</blockquote>
+<p>上面的<code>@Service</code>也可以写成<code>@Service(value=&quot;Demo&quot;)</code><br>因为value是默认属性名，可缩写，故等价于<code>@Service(&quot;Demo&quot;)</code></p>
+<h2 id="Spring-Bean"><a href="#Spring-Bean" class="headerlink" title="Spring Bean"></a>Spring Bean</h2><p>IoC(Inversion of Control, 控制反转)容器是Spring框架最最核心的组件。</p>
+<blockquote>
+<p>IoC是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度</p>
+</blockquote>
+<p>在Spring框架中，主要通过依赖注入(Dependency Injection, DI)来实现IoC</p>
+<p>在Spring的世界中，所有的Java对象都会通过IoC容器转变为Bean(Spring对象的一种称呼)，构成应用程序主干和由Spring IoC容器管理的对象成为beans。beans和它们之间的依赖关系反映在容器使用的配置元数据中。基本上所有的Bean都是有接口+实现类完成的，用户想要获取Bean的实例直接从IoC容器获取即可，无需关心实现类</p>
+<p>Spring主要有两种配置元数据的方式，一种是基于XML，一种是基于Annotation</p>
+<p><code>org.springframework.context.ApplicationContext</code>接口类定义容器的对外服务，通过这个接口可以从IoC容器中得到Bean对象。在启动Java程序的时候必须先启动IoC容器</p>
+<p>Annotation类型的IoC容器对应的类是</p>
+<pre><code>org.springframework.context.annotation.AnnotationConfigApplicationContext
+</code></pre>
+<p>如果要启动IoC容器，可以运行下面的代码</p>
+<pre><code>ApplicationContext context = new AnnotationConfigApplicationContext(&quot;fm.douban&quot;);
+</code></pre>
+<p>这段代码的含义就是启动IoC容器，并且会自动加载包<code>fm.douban</code>下的Bean(引用了Spring注解的类)</p>
+<p><code>AnnotationConfigApplicationContext</code>类的构造函数有两种</p>
+<ul>
+<li><code>AnnotationConfigApplicationContext(String ... basePackages)</code>根据包名实例化</li>
+<li><code>AnnotationConfigApplicationContext(Class clszz)</code>根据自定义包扫描行为实例化</li>
+</ul>
+<p>Spring官方声明为Spring Bean的注解有以下几种：</p>
+<ul>
+<li><code>org.springframework.stereotype.Component</code><br><code>@Component</code>注解是通用的Bean注解，其余三个都是扩展自Component</li>
+<li><code>org.springframework.stereotype.Service</code><br><code>@Service</code>代表的是Service Bean</li>
+<li><code>org.springframework.stereotype.Controller</code><br><code>@Controller</code>作用于Web Bean</li>
+<li><code>org.springframework.stereotype.Repository</code><br><code>@Repsitory</code>作用于持久化相关Bean</li>
+</ul>
+<p><strong>依赖注入的第一步是完成容器的启动，第二步就是真正的完成依赖注入行为了</strong></p>
+<p>依赖注入使得到其他Bean实例相当简单，只需在属性上添加注解，例如</p>
+<pre><code>@Autowired
+private SongService songService;
+</code></pre>
+<blockquote>
+<p>Autowired完整的类路径是<code>org.springframework.beans.factory.annotation.Autowired</code></p>
+</blockquote>
+<p>当然还有一个前提条件，就是当前的类是Spring Bean(在类前添加合适注解，如<code>@Service</code>)</p>
+<h2 id="Spring-Resource"><a href="#Spring-Resource" class="headerlink" title="Spring Resource"></a>Spring Resource</h2><p><strong>文件处理方案</strong></p>
+<p>当文件在电脑某个位置(e.g.<code>d:\temp\c.txt</code>)，或在工程目录下(e.g.<code>work/c.txt</code>)时，使用File对象就可以读写</p>
+<pre><code>File file = new File(&quot;work/readme.md&quot;);
+</code></pre>
+<p>但当文件在工程的<code>src/main/resources</code>目录下时，由于Maven执行package会把resources目录下的文件一起打包进jar包里，此时显然用File对象是读取不到的。</p>
+<h4 id="classpath"><a href="#classpath" class="headerlink" title="classpath"></a>classpath</h4><p>在Java内部，一般把文件路径称为classpath，classpath指定的文件不能解析成File对象，但是可以解析成InputStream，借助Java IO就可以读取了</p>
+<blockquote>
+<p>借助第三方类库，commons-io</p>
+</blockquote>
+<pre><code>// 读取classpath的内容
+InputStream in = Test.class.getClassLoader().getResourceAsStream(&quot;c.txt&quot;);
+// 使用 commons-io库读取文本
+try&#123;
+    String content = IOUtils.toString(in, &quot;utf-8&quot;);
+    System.out.println(content);
+&#125; catch (IOException e) &#123;
+    // IOUtils.toString有可能会抛出异常
+    e.printStackTrace();
+&#125;
+</code></pre>
+<p>这段代码含义就是从Java运行的类加载器(ClassLoader)实例中查找文件，<code>Test.class</code>指当前的Test.java编译后的class文件。</p>
+<p>在Spring中定义了一个<code>org.springframework.io.Resource</code>类来封装文件，这个类既支持普通的File，也支持classpath文件。<br>并且在Spring中通过<code>org.springframework.core.io.ResourceLoader</code>服务来提供任意文件的读写。</p>
+<pre><code>import fm.douban.service.FileService;
+import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
+import org.springframework.stereotype.Service;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+@Service
+public class FileServiceImpl implements FileService &#123;
+    @Autowired
+    private ResourceLoader loader;
+
+    @Override
+    public String getContent(String name) &#123;
+        try&#123;
+            InputStream in = loader.getResource(name).getInputStream();
+            return IOUtils.toString(in, &quot;utf-8&quot;);
+        &#125; catch (IOException e) &#123;
+            return null;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>服务的调用</p>
+<pre><code>FileService fileService = context.getBean(FileService.class);
+String content1 = fileService.getContent(&quot;classpath:data/urls.txt&quot;);
+System.out.println(content1);
+
+String content2 = fileService.getContent(&quot;file:mywork/readme.md&quot;);
+System.out.println(content2);
+
+String content3 = fileService.getContent(&quot;https://www.zhihu.com/question/34786516/answer/822686390&quot;);
+System.out.println(content3);
+</code></pre>
+<p>在Spring Resource中，把本地文件、classpath文件、远程文件都封装成Resource对象来统一加载</p>
+<h2 id="Spring-Bean的生命周期-Lifecycle"><a href="#Spring-Bean的生命周期-Lifecycle" class="headerlink" title="Spring Bean的生命周期(Lifecycle)"></a>Spring Bean的生命周期(Lifecycle)</h2><p>实例化Bean -&gt; 完成依赖注入 -&gt; afterPropertiesSet -&gt; Bean init -&gt; destroy</p>
+<p>大部分时候只需掌握<code>init</code>方法即可。<code>init</code>方法名称可以使任意的，因为<code>init</code>是通过注解来声明的</p>
+<pre><code>@PostConstruct
+public void init() &#123;
+    System.out.println(&quot;服务启动&quot;);
+&#125;
+</code></pre>
+<p>只需在方法上添加<code>@PostConstruct</code>注解，就代表该方法在Spring Bean启动后会自动执行</p>
+<blockquote>
+<p>PostConstruct的完整包路径是<code>javax.annotation.PostConstruct</code></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">FiveMountain</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fivemountain.github.io/2021/03/02/Spring%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">https://fivemountain.github.io/2021/03/02/Spring%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://fivemountain.github.io" target="_blank">FivMntBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Learning-Notes/">Learning Notes</a><a class="post-meta__tags" href="/tags/Spring/">Spring</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/03/03/Spring-MVC/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Spring MVC</div></div></a></div><div class="next-post pull-right"><a href="/2021/03/02/Spring%E5%85%A5%E9%97%A8/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Spring入门</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/03/10/Spring-Data-入门/" title="Spring Data 入门"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-10</div><div class="title">Spring Data 入门</div></div></a></div><div><a href="/2021/03/05/Spring-Boot-入门/" title="Spring Boot 入门"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-05</div><div class="title">Spring Boot 入门</div></div></a></div><div><a href="/2021/03/03/Spring-MVC/" title="Spring MVC"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-03</div><div class="title">Spring MVC</div></div></a></div><div><a href="/2021/03/05/Spring-Session/" title="Spring Session"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-05</div><div class="title">Spring Session</div></div></a></div><div><a href="/2021/03/03/Spring-Template/" title="Spring Template"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-03</div><div class="title">Spring Template</div></div></a></div><div><a href="/2021/03/02/Spring入门/" title="Spring入门"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-02</div><div class="title">Spring入门</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">FiveMountain</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E6%B3%A8%E8%A7%A3-Annotation"><span class="toc-number">1.</span> <span class="toc-text">Java注解(Annotation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81Target"><span class="toc-number">1.1.</span> <span class="toc-text">1、Target</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81Retention"><span class="toc-number">1.2.</span> <span class="toc-text">2、Retention</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81Documented"><span class="toc-number">1.3.</span> <span class="toc-text">3、Documented</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81-interface"><span class="toc-number">1.4.</span> <span class="toc-text">4、@interface</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81Annotation%E5%B1%9E%E6%80%A7"><span class="toc-number">1.5.</span> <span class="toc-text">5、Annotation属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-Bean"><span class="toc-number">2.</span> <span class="toc-text">Spring Bean</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-Resource"><span class="toc-number">3.</span> <span class="toc-text">Spring Resource</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#classpath"><span class="toc-number">3.0.1.</span> <span class="toc-text">classpath</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-Bean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-Lifecycle"><span class="toc-number">4.</span> <span class="toc-text">Spring Bean的生命周期(Lifecycle)</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/09/10/Docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Docker学习笔记">Docker学习笔记</a><time datetime="2021-09-10T05:36:49.000Z" title="发表于 2021-09-10 13:36:49">2021-09-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/07/15/XXL-JOB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="XXL-JOB学习笔记">XXL-JOB学习笔记</a><time datetime="2021-07-15T07:34:13.000Z" title="发表于 2021-07-15 15:34:13">2021-07-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/07/15/Hazelcast%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Hazelcast学习笔记">Hazelcast学习笔记</a><time datetime="2021-07-15T07:30:50.000Z" title="发表于 2021-07-15 15:30:50">2021-07-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/07/09/Apollo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Apollo学习笔记">Apollo学习笔记</a><time datetime="2021-07-09T05:36:49.000Z" title="发表于 2021-07-09 13:36:49">2021-07-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/07/08/Nacos%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Nacos学习笔记">Nacos学习笔记</a><time datetime="2021-07-08T06:33:36.000Z" title="发表于 2021-07-08 14:33:36">2021-07-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By FiveMountain</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
