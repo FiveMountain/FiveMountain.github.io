@@ -1,8 +1,9 @@
 ---
 title: Spring Boot 入门
 date: 2021-03-05 15:40:29
-tags:
-- Spring Learning Notes
+categories:
+- Learning Notes
+- Spring
 ---
 ## Spring Boot ComponentScan
 

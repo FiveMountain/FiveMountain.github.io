@@ -1,8 +1,9 @@
 ---
 title: Spring Template
 date: 2021-03-03 15:02:16
-tags:
-- Spring Learning Notes
+categories:
+- Learning Notes
+- Spring
 ---
 ## Thymeleaf入门
 
@@ -14,6 +15,7 @@ Thymeleaf是一个模板框架，可以支持多种格式的内容动态渲染
 
 1. **添加Maven依赖**
 
+
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -22,8 +24,8 @@ Thymeleaf是一个模板框架，可以支持多种格式的内容动态渲染
 2. **数据传递**
 只需在方法参数里引入一个`Model`对象，就可以通过这个Model对象传递数据到页面中了
 
-    import org.springframework.ui.Model;
 
+    import org.springframework.ui.Model;
 
     @Controller
     public class SongListControl {
@@ -45,8 +47,8 @@ Thymeleaf是一个模板框架，可以支持多种格式的内容动态渲染
 3. **模板文件**
 Spring MVC中对模板文件有固定的存放位置`src/main/resources/templates`
 所以上面的`return "songList"`其实会去查找`src/main/resources/templates/songList.html`文件
-
 模板文件内容如下
+
 
     <!DOCTYPE html>
     <html lang="en">

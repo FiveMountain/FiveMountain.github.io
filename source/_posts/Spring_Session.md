@@ -1,8 +1,9 @@
 ---
 title: Spring Session
 date: 2021-03-05 18:20:39
-tags:
-- Spring Learning Notes
+categories:
+- Learning Notes
+- Spring
 ---
 ## Cookie
 

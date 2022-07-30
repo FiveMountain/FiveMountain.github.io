@@ -1,7 +1,7 @@
 ---
 title: cookie的重要属性
 date: 2021-03-07 21:26:14
-tags:
+categories:
 - Pages
 ---
 ### name

@@ -1,8 +1,9 @@
 ---
 title: Spring入门
 date: 2021-03-02 08:51:57
-tags:
-- Spring Learning Notes
+categories:
+- Learning Notes
+- Spring
 ---
 ## Maven入门
 ### Maven命令
